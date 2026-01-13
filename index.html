@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rangyul - Group of Hotels | Premium Hospitality in Kargil, Ladakh</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Rangyul Group of Hotels Logo" class="logo-img">
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="hotel-rangyul.html" class="nav-link">Hotel Rangyul</a>
+                <a href="rangyul-resort.html" class="nav-link">Rangyul Resort</a>
+                <a href="galaxy-hotel.html" class="nav-link">Galaxy Hotel</a>
+                <a href="contact.html" class="nav-link nav-cta">Contact</a>
+                <!-- Quick Book Button removed from navigation -->
+            </nav>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Quick Booking Modal -->
+    <div class="booking-modal" id="bookingModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-calendar-check"></i> QUICK BOOKING</h3>
+                <button class="modal-close" aria-label="Close booking modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <p class="modal-subtitle">Fill in your details and we'll redirect you to WhatsApp for confirmation</p>
+                
+                <form id="quickBookingForm">
+                    <div class="form-group">
+                        <label for="booking-name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="booking-name" class="booking-input" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-phone"><i class="fas fa-phone"></i> Phone Number</label>
+                        <input type="tel" id="booking-phone" class="booking-input" placeholder="Enter your WhatsApp number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="booking-email" class="booking-input" placeholder="Enter your email address">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-checkin"><i class="fas fa-calendar-alt"></i> Check-in Date</label>
+                            <input type="date" id="booking-checkin" class="booking-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="booking-checkout"><i class="fas fa-calendar-alt"></i> Check-out Date</label>
+                            <input type="date" id="booking-checkout" class="booking-input" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-guests"><i class="fas fa-user-friends"></i> Number of Guests</label>
+                        <select id="booking-guests" class="booking-input" required>
+                            <option value="">Select number of guests</option>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5+">5+ Guests</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-property"><i class="fas fa-hotel"></i> Select Property</label>
+                        <select id="booking-property" class="booking-input" required>
+                            <option value="">Choose a property</option>
+                            <option value="Hotel Rangyul">Hotel Rangyul - Baroo, Kargil</option>
+                            <option value="Rangyul Resort">Rangyul Resort - Suru Valley, Kargil</option>
+                            <option value="Galaxy Hotel">Galaxy Hotel - Kargil Center</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-message"><i class="fas fa-comment"></i> Additional Message (Optional)</label>
+                        <textarea id="booking-message" class="booking-input" rows="3" placeholder="Any special requests or requirements..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="booking-submit-btn">
+                        <i class="fab fa-whatsapp"></i> Continue to WhatsApp
+                    </button>
+                    
+                    <p class="modal-note">
+                        <i class="fas fa-info-circle"></i> You'll be redirected to WhatsApp with all your booking details
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Image Slider -->
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('images/hero-1.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('images/hero-2.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('images/hero-3.jpg');"></div>
+        </div>
+        
+        <!-- Dark Overlay -->
+        <div class="hero-overlay"></div>
+        
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="hero-title">
+                <div class="hero-pretext">WELCOME TO</div>
+                <div class="hero-brand">
+                    <span class="hero-brand-part">RANGYUL</span>
+                    <span class="hero-brand-sub">GROUP OF HOTELS</span>
+                </div>
+<br>
+                <div class="hero-tagline-container">
+                    <p class="hero-tagline">Where Himalayan majesty meets modern luxury</p>
+                </div>
+                
+                <!-- Quick Book CTA Button -->
+                <button class="hero-quick-book-btn quick-book-trigger">
+                    <i class="fas fa-calendar-alt"></i> Quick Book Now
+                </button>
+                
+                <div class="hero-scroll-indicator">
+                    <div class="scroll-mouse">
+                        <div class="scroll-wheel"></div>
+                    </div>
+                    <span class="scroll-text">Scroll to Explore</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Presence Section -->
+    <section class="section presence-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">OUR PRESENCE</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Rangyul stands as a trusted name in hospitality across Kargil, offering comfortable stays that blend modern comfort with warm Himalayan hospitality.</p>
+            </div>
+            
+            <div class="presence-grid">
+                <div class="presence-left">
+                    <div class="presence-text">
+                        <p>Our thoughtfully priced accommodations ensure that every traveler, family, and explorer can experience quality service without compromise. With great hospitality and attentive service at the heart of everything we do, we welcome you to discover the beauty of Kargil through comfortable, accessible stays.</p>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="150">0</div>
+                            <div class="stat-label">Rooms</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="3">0</div>
+                            <div class="stat-label">Properties</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="15">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="5000">0</div>
+                            <div class="stat-label">+ Happy Guests</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="presence-right">
+                    <div class="presence-contact">
+                        <div class="contact-card">
+                            <h3 class="contact-heading">Get In Touch</h3>
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Phone</span>
+                                        <a href="tel:+918899452417" class="contact-value">+91 88994 52417</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <span class="contact-label">WhatsApp</span>
+                                        <a href="https://wa.me/918899452417" class="contact-value">+91 88994 52417</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <span class="contact-label">Email</span>
+                                        <a href="mailto:rangyulgroupofhotels@gmail.com" class="contact-value">rangyulgroupofhotels@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Properties Section -->
+    <section class="section properties-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">OUR PROPERTIES</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="properties-grid">
+                <!-- Hotel Rangyul Card -->
+                <a href="hotel-rangyul.html" class="property-card">
+                    <div class="property-image-container">
+                        <div class="property-slider">
+                            <div class="property-slide active" style="background-image: url('images/town-1.jpg');"></div>
+                            <div class="property-slide" style="background-image: url('images/town-2.jpg');"></div>
+                            <div class="property-slide" style="background-image: url('images/town-3.jpg');"></div>
+                        </div>
+                        <div class="property-overlay">
+                            <div class="property-tag">TOWN PROPERTY</div>
+                        </div>
+                        <div class="property-glow"></div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-name">HOTEL RANGYUL</h3>
+                        <p class="property-location">Baroo, Kargil</p>
+                        <div class="property-description">
+                            <p>Experience comfortable accommodation in the heart of Kargil town, with easy access to local attractions and amenities.</p>
+                        </div>
+                        <div class="property-button">
+                            <span>Explore Property</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Rangyul Resort Card -->
+                <a href="rangyul-resort.html" class="property-card">
+                    <div class="property-image-container">
+                        <div class="property-slider">
+                            <div class="property-slide active" style="background-image: url('images/resort-mountain.jpg');"></div>
+                            <div class="property-slide" style="background-image: url('images/resort-greenery.jpg');"></div>
+                            <div class="property-slide" style="background-image: url('images/resort-nature.jpg');"></div>
+                        </div>
+                        <div class="property-overlay">
+                            <div class="property-tag">RESORT EXPERIENCE</div>
+                        </div>
+                        <div class="property-glow"></div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-name">RANGYUL RESORT</h3>
+                        <p class="property-location">Suru Valley, Kargil</p>
+                        <div class="property-description">
+                            <p>Immerse yourself in nature with panoramic mountain views and luxurious amenities in a serene valley setting.</p>
+                        </div>
+                        <div class="property-button">
+                            <span>Explore Property</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Galaxy Hotel Card -->
+                <a href="galaxy-hotel.html" class="property-card">
+                    <div class="property-image-container">
+                        <div class="property-slider">
+                            <div class="property-slide active" style="background-image: url('images/galaxy-1.jpg');"></div>
+                            <div class="property-slide" style="background-image: url('images/galaxy-2.jpg');"></div>
+                            <div class="property-slide" style="background-image: url('images/galaxy-3.jpg');"></div>
+                        </div>
+                        <div class="property-overlay">
+                            <div class="property-tag">PREMIUM STAY</div>
+                        </div>
+                        <div class="property-glow"></div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-name">GALAXY HOTEL</h3>
+                        <p class="property-location">Kargil Center</p>
+                        <div class="property-description">
+                            <p>Premium accommodations with modern facilities and exceptional service for discerning travelers.</p>
+                        </div>
+                        <div class="property-button">
+                            <span>Explore Property</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Map Section -->
+    <section class="section map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">OUR LOCATIONS</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Find our premium properties across beautiful Kargil</p>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-controls">
+                    <h3><i class="fas fa-map-marker-alt"></i> SELECT A PROPERTY</h3>
+                    <p class="map-instruction">Click on any property to view its location</p>
+                    
+                    <div class="property-list">
+                        <div class="map-property-card active" data-location="hotel-rangyul" data-lat="34.5576" data-lng="76.1252">
+                            <h4>HOTEL RANGYUL</h4>
+                            <p class="property-location-map">Baroo, Kargil</p>
+                            <p class="property-tag-map">Town Center</p>
+                        </div>
+                        
+                        <div class="map-property-card" data-location="rangyul-resort" data-lat="34.5100" data-lng="76.1350">
+                            <h4>RANGYUL RESORT</h4>
+                            <p class="property-location-map">Suru Valley, Kargil</p>
+                            <p class="property-tag-map">Valley View</p>
+                        </div>
+                        
+                        <div class="map-property-card" data-location="galaxy-hotel" data-lat="34.5571" data-lng="76.1324">
+                            <h4>GALAXY HOTEL</h4>
+                            <p class="property-location-map">Kargil Center</p>
+                            <p class="property-tag-map">Premium Location</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-tip">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Zoom and drag to explore the map</span>
+                    </div>
+                </div>
+                
+                <div class="map-display" id="kargil-map">
+                    <!-- Leaflet Map will be loaded here -->
+                    <div id="leaflet-map" style="width: 100%; height: 100%; border-radius: var(--radius-large);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section why-choose-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gold-flourish">WHY CHOOSE RANGYUL</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Experience the perfect blend of Himalayan hospitality and modern comfort</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>Authentic Himalayan Experience</h4>
+                        <p>Immerse yourself in the beauty of Ladakh with locally-inspired decor and breathtaking mountain views.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>Personalized Service</h4>
+                        <p>Our dedicated staff provides attentive service to ensure your stay is comfortable and memorable.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>Thoughtfully Priced</h4>
+                        <p>Quality accommodations at accessible prices for every type of traveler.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>Safety & Cleanliness</h4>
+                        <p>Rigorous hygiene standards and safety protocols for your peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section class="section offers-section">
+        <div class="container">
+            <div class="offers-container">
+                <div class="section-header">
+                    <h2 class="section-title">SPECIAL OFFERS</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Exclusive deals for our valued guests</p>
+                </div>
+                
+                <div class="offers-grid">
+                    <div class="offer-card most-popular animated-offer">
+                        <div class="offer-badge">MOST POPULAR</div>
+                        <div class="offer-icon classic-animated-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <h4>EARLY ACCESS</h4>
+                        <p>Book 10 days in advance and get 20% off on your stay</p>
+                        <a href="#" class="offer-link quick-book-trigger classic-animated-button">
+                            <span class="btn-text">Book Now</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="offer-card animated-offer">
+                        <div class="offer-badge">EXTENDED STAY</div>
+                        <div class="offer-icon classic-animated-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h4>STAY MORE, SAVE MORE</h4>
+                        <p>Stay 5 nights or more and get 1 night absolutely free</p>
+                        <a href="#" class="offer-link quick-book-trigger classic-animated-button">
+                            <span class="btn-text">Book Now</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="offer-card animated-offer">
+                        <div class="offer-badge">GROUP SPECIAL</div>
+                        <div class="offer-icon classic-animated-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>GROUP BOOKING</h4>
+                        <p>Special rates for group bookings of 4 rooms or more</p>
+                        <a href="#" class="offer-link quick-book-trigger classic-animated-button">
+                            <span class="btn-text">Book Now</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="offer-card animated-offer">
+                        <div class="offer-badge">SEASONAL</div>
+                        <div class="offer-icon classic-animated-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h4>SUMMER SPECIAL</h4>
+                        <p>Enjoy 15% off on all bookings from June to August</p>
+                        <a href="#" class="offer-link quick-book-trigger classic-animated-button">
+                            <span class="btn-text">Book Now</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="offer-cta">
+                    <p><i class="fas fa-info-circle"></i> Have special requirements? <a href="contact.html">Contact us for custom packages</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="offers-bottom">
+            <div class="container">
+                <div class="experience-cta">
+                    <h3>READY FOR AN UNFORGETTABLE HIMALAYAN EXPERIENCE?</h3>
+                    <p>Book your stay today and experience luxury in the heart of Kargil</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-button primary quick-book-trigger">
+                            <i class="fas fa-calendar-alt"></i> Quick Book
+                        </a>
+                        <a href="tel:+918899452417" class="cta-button secondary">
+                            <i class="fas fa-phone-alt"></i> Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-divider"></div>
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <!-- Brand Column (Left) -->
+                <div class="footer-brand">
+                    <div class="footer-logo-container">
+                        <img src="images/logo.png" alt="Rangyul Logo" class="footer-logo">
+                    </div>
+                    <h3 class="footer-brand-name">Rangyul Group of Hotels</h3>
+                    <p class="footer-location">
+                        Kargil | Ladakh | Himalayas
+                    </p>
+                    <p class="footer-tagline">Where Himalayan majesty meets modern luxury. Experience premium hospitality in the heart of Kargil.</p>
+                </div>
+                
+                <!-- Contact Column (Right) -->
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Contact Information</h4>
+                    <div class="contact-info-footer">
+                        <div class="contact-item-footer">
+                            <div class="contact-icon-footer">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details-footer">
+                                <span class="contact-label-footer">Address</span>
+                                <span class="contact-value-footer">Srinagar – Ladakh Road, Baroo, Kargil, Jammu & Kashmir – 194103</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item-footer">
+                            <div class="contact-icon-footer">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details-footer">
+                                <span class="contact-label-footer">Phone</span>
+                                <a href="tel:+918899452417" class="contact-value-footer">+91 88994 52417</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item-footer">
+                            <div class="contact-icon-footer">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details-footer">
+                                <span class="contact-label-footer">Email</span>
+                                <a href="mailto:rangyulgroupofhotels@gmail.com" class="contact-value-footer">rangyulgroupofhotels@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Media Section (Center) -->
+            <div class="footer-social-section">
+                <h4 class="social-heading">Connect With Us</h4>
+                <div class="social-icons-container">
+                    <a href="https://www.facebook.com/profile.php?id=100063778661678" target="_blank" class="social-icon-footer" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com/rangyulhotels" target="_blank" class="social-icon-footer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/918899452417" target="_blank" class="social-icon-footer" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:rangyulgroupofhotels@gmail.com" class="social-icon-footer" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="copyright">&copy; <span id="current-year">2026</span> Rangyul Group of Hotels. All rights reserved.</p>
+                <p><a href="index.html" class="back-to-home"><i class="fas fa-home"></i> Back to Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>
