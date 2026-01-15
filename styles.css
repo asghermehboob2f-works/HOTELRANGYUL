@@ -2851,3 +2851,15 @@ select:focus {
     display: flex;
   }
 }
+
+
+
+
+/* Legal Links Hover Effect in Footer */
+.legal-links-footer a:hover span {
+    width: 100%;
+}
+
+.legal-links-footer a:hover {
+    color: var(--luxury-gold-light);
+}
