@@ -31,7 +31,6 @@
                 <a href="rangyul-resort.html" class="nav-link">Rangyul Resort</a>
                 <a href="galaxy-hotel.html" class="nav-link">Galaxy Hotel</a>
                 <a href="contact.html" class="nav-link nav-cta">Contact</a>
-                <!-- Quick Book Button removed from navigation -->
             </nav>
             
             <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
@@ -106,6 +105,9 @@
                         </select>
                     </div>
                     
+                    <!-- Hidden field for selected offer -->
+                    <input type="hidden" id="selected-offer" value="">
+                    
                     <div class="form-group">
                         <label for="booking-message"><i class="fas fa-comment"></i> Additional Message (Optional)</label>
                         <textarea id="booking-message" class="booking-input" rows="3" placeholder="Any special requests or requirements..."></textarea>
@@ -148,7 +150,6 @@
                 <button class="hero-quick-book-btn quick-book-trigger">
                     <i class="fas fa-calendar-alt"></i> Quick Book
                 </button>
-                
                 <div class="hero-scroll-indicator">
                     <div class="scroll-mouse">
                         <div class="scroll-wheel"></div>
@@ -159,122 +160,122 @@
         </div>
     </section>
 
-    <!-- Our Presence Section - Redesigned -->
-<section class="section presence-section">
-    <div class="container">
-        <!-- Section Header -->
-        <div class="presence-header">
-            <h2 class="section-title presence-title">OUR PRESENCE</h2>
-            <div class="section-divider"></div>
-            <p class="presence-intro">
-                Rangyul Group of hotels offers the best hotels in Kargil, Ladakh including Rangyul Resort, 
-                Hotel Rangyul, and Galaxy Hotel. Our properties are ideal for tourists looking for resorts 
-                in Kargil, budget hotels in Kargil, Family hotels in Ladakh, hotels near Leh-Srinagar highway, 
-                and luxury stays in Kargil town. Book directly with Rangyul Hotels for guaranteed best prices, 
-                personalized service, and authentic Ladakhi hospitality.
-            </p>
-        </div>
+    <!-- Our Presence Section -->
+    <section class="section presence-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="presence-header">
+                <h2 class="section-title presence-title">OUR PRESENCE</h2>
+                <div class="section-divider"></div>
+                <p class="presence-intro">
+                    Rangyul Group of hotels offers the best hotels in Kargil, Ladakh including Rangyul Resort, 
+                    Hotel Rangyul, and Galaxy Hotel. Our properties are ideal for tourists looking for resorts 
+                    in Kargil, budget hotels in Kargil, Family hotels in Ladakh, hotels near Leh-Srinagar highway, 
+                    and luxury stays in Kargil town. Book directly with Rangyul Hotels for guaranteed best prices, 
+                    personalized service, and authentic Ladakhi hospitality.
+                </p>
+            </div>
 
-        <!-- Main Content Container -->
-        <div class="presence-content">
-            <!-- Main Description Card -->
-            <div class="presence-main-card">
-                <div class="card-header">
-                    <div class="header-icon">
-                        <i class="fas fa-hotel"></i>
-                    </div>
-                    <h3>Your Trusted Hotels in Kargil, Ladakh</h3>
-                </div>
-                
-                <div class="card-body">
-                    <!-- Row 1 -->
-                    <div class="content-row">
-                        <div class="content-item">
-                            <div class="item-icon">
-                                <i class="fas fa-crown"></i>
-                            </div>
-                            <div class="item-content">
-                                <h4>Locally Owned Excellence</h4>
-                                <p><strong>Rangyul Group of Hotels</strong> is a locally owned hospitality brand offering premium stays across Kargil with deep roots in the community.</p>
-                            </div>
+            <!-- Main Content Container -->
+            <div class="presence-content">
+                <!-- Main Description Card -->
+                <div class="presence-main-card">
+                    <div class="card-header">
+                        <div class="header-icon">
+                            <i class="fas fa-hotel"></i>
                         </div>
-                        
-                        <div class="content-item">
-                            <div class="item-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <div class="item-content">
-                                <h4>Commitment to Comfort</h4>
-                                <p>With strong commitment to <strong>comfort, cleanliness, and personalized service</strong>, we welcome all travelers seeking peace in Ladakh's breathtaking landscapes.</p>
-                            </div>
-                        </div>
+                        <h3>Your Trusted Hotels in Kargil, Ladakh</h3>
                     </div>
                     
-                    <!-- Row 2 -->
-                    <div class="content-row">
-                        <div class="content-item">
-                            <div class="item-icon">
-                                <i class="fas fa-home"></i>
+                    <div class="card-body">
+                        <!-- Row 1 -->
+                        <div class="content-row">
+                            <div class="content-item">
+                                <div class="item-icon">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <div class="item-content">
+                                    <h4>Locally Owned Excellence</h4>
+                                    <p><strong>Rangyul Group of Hotels</strong> is a locally owned hospitality brand offering premium stays across Kargil with deep roots in the community.</p>
+                                </div>
                             </div>
-                            <div class="item-content">
-                                <h4>Thoughtful Design</h4>
-                                <p>Our hotels provide <strong>warmth, modern facilities, and authentic Ladakhi hospitality</strong> — making us Kargil's most reliable hotel chain.</p>
+                            
+                            <div class="content-item">
+                                <div class="item-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="item-content">
+                                    <h4>Commitment to Comfort</h4>
+                                    <p>With strong commitment to <strong>comfort, cleanliness, and personalized service</strong>, we welcome all travelers seeking peace in Ladakh's breathtaking landscapes.</p>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="content-item">
-                            <div class="item-icon">
-                                <i class="fas fa-compass"></i>
+                        <!-- Row 2 -->
+                        <div class="content-row">
+                            <div class="content-item">
+                                <div class="item-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="item-content">
+                                    <h4>Thoughtful Design</h4>
+                                    <p>Our hotels provide <strong>warmth, modern facilities, and authentic Ladakhi hospitality</strong> — making us Kargil's most reliable hotel chain.</p>
+                                </div>
                             </div>
-                            <div class="item-content">
-                                <h4>Complete Journey Support</h4>
-                                <p>Whether for <strong>adventure, culture, or relaxation</strong>, we ensure your Ladakh journey begins and ends in perfect comfort.</p>
+                            
+                            <div class="content-item">
+                                <div class="item-icon">
+                                    <i class="fas fa-compass"></i>
+                                </div>
+                                <div class="item-content">
+                                    <h4>Complete Journey Support</h4>
+                                    <p>Whether for <strong>adventure, culture, or relaxation</strong>, we ensure your Ladakh journey begins and ends in perfect comfort.</p>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="presence-stats">
+                    <h3 class="stats-title">Our Impact in Numbers</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-bed"></i>
+                            </div>
+                            <div class="stat-number" data-count="150">0</div>
+                            <div class="stat-label">Luxury Rooms</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="stat-number" data-count="3">0</div>
+                            <div class="stat-label">Premium Properties</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="stat-number" data-count="15">0</div>
+                            <div class="stat-label">Years of Excellence</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-number" data-count="5000">0</div>
+                            <div class="stat-label">Happy Guests</div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Stats Section -->
-            <div class="presence-stats">
-                <h3 class="stats-title">Our Impact in Numbers</h3>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-bed"></i>
-                        </div>
-                        <div class="stat-number" data-count="150">0</div>
-                        <div class="stat-label">Luxury Rooms</div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <div class="stat-number" data-count="3">0</div>
-                        <div class="stat-label">Premium Properties</div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <div class="stat-number" data-count="15">0</div>
-                        <div class="stat-label">Years of Excellence</div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="stat-number" data-count="5000">0</div>
-                        <div class="stat-label">Happy Guests</div>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Our Properties Section -->
     <section class="section properties-section">
@@ -326,7 +327,7 @@
                     </div>
                     <div class="property-content">
                         <h3 class="property-name">RANGYUL RESORT</h3>
-                        <p class="property-location">Suru Valley, Kargil</p>
+                        <p class="property-location">Kurbathang Kargil</p>
                         <div class="property-description">
                             <p>Rangyul Resort is a premium cottage-style resort in Kargil located along the Leh–Srinagar Highway. Surrounded by mountains and open meadows, our eco-designed mud cottages offer natural temperature balance, stunning views, and peaceful luxury — perfect for honeymooners, bikers, and group tours.</p>
                         </div>
@@ -419,8 +420,8 @@
         </div>
     </section>
 
-   <!-- Special Offers Section - Compact Design -->
-<section class="section special-offers-section">
+   <!-- Special Offers Section - Enhanced Premium Version -->
+<section class="section special-offers-section premium-offers">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title gold-flourish">EXCLUSIVE OFFERS</h2>
@@ -428,198 +429,312 @@
             <p class="section-subtitle">Tailored experiences for your Himalayan adventure</p>
         </div>
         
-        <div class="compact-offers-grid">
+        <div class="premium-offers-grid">
             <!-- Transit Traveller Offer -->
-            <div class="compact-offer-card highlight-card">
-                <div class="offer-tag popular">POPULAR</div>
-                <div class="compact-offer-header">
-                    <div class="compact-offer-icon">
+            <div class="premium-offer-card highlight-popular" data-offer="Transit Traveller - Leh–Srinagar–Zanskar Route (Free Breakfast + Early Check-In)">
+                <div class="premium-offer-tag popular-tag">
+                    <i class="fas fa-fire"></i> POPULAR
+                </div>
+                <div class="premium-offer-glow"></div>
+                
+                <div class="premium-offer-header">
+                    <div class="premium-offer-icon">
+                        <div class="icon-glow"></div>
                         <i class="fas fa-route"></i>
                     </div>
-                    <div class="compact-offer-title">
+                    <div class="premium-offer-title">
                         <h3>Transit Traveller</h3>
-                        <p class="compact-offer-subtitle">Leh–Srinagar–Zanskar Route</p>
+                        <p class="premium-offer-subtitle">Leh–Srinagar–Zanskar Route</p>
                     </div>
                 </div>
                 
-                <div class="compact-offer-content">
-                    <div class="offer-benefit">
-                        <i class="fas fa-coffee"></i>
-                        <span>Free Breakfast</span>
+                <div class="premium-offer-content">
+                    <div class="offer-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-coffee"></i>
+                            <span>Free Breakfast</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Early Check-In</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-luggage-cart"></i>
+                            <span>Luggage Storage</span>
+                        </div>
                     </div>
-                    <div class="offer-benefit">
-                        <i class="fas fa-clock"></i>
-                        <span>Early Check-In</span>
+                    
+                    <p class="premium-offer-desc">Perfect for guests with late arrivals & early departures along the highway route.</p>
+                    
+                    <div class="offer-stats">
+                        <div class="stat">
+                            <span class="value">24/7</span>
+                            <span class="label">Service</span>
+                        </div>
+                        <div class="stat">
+                            <span class="value">Flexible</span>
+                            <span class="label">Timings</span>
+                        </div>
                     </div>
                 </div>
                 
-                <p class="compact-offer-desc">For guests with late arrivals & early departures</p>
-                
-                <button class="compact-book-btn quick-book-trigger">
+                <button class="premium-book-btn offer-book-trigger pulse-effect" data-offer="Transit Traveller - Leh–Srinagar–Zanskar Route">
                     <span>Book Now</span>
                     <i class="fas fa-arrow-right"></i>
+                    <div class="btn-glow"></div>
                 </button>
             </div>
             
             <!-- Suru Valley Escape -->
-            <div class="compact-offer-card">
-                <div class="offer-tag resort">RESORT</div>
-                <div class="compact-offer-header">
-                    <div class="compact-offer-icon">
+            <div class="premium-offer-card resort-theme" data-offer="Suru Valley Escape - Nature Retreat Package (₹500 OFF per night + Free Nature Walk)">
+                <div class="premium-offer-tag resort-tag">
+                    <i class="fas fa-mountain"></i> RESORT
+                </div>
+                <div class="premium-offer-glow"></div>
+                
+                <div class="premium-offer-header">
+                    <div class="premium-offer-icon">
+                        <div class="icon-glow"></div>
                         <i class="fas fa-mountain-sun"></i>
                     </div>
-                    <div class="compact-offer-title">
-                        <h3>Suru Valley</h3>
-                        <p class="compact-offer-subtitle">Nature Retreat</p>
+                    <div class="premium-offer-title">
+                        <h3>Suru Valley Escape</h3>
+                        <p class="premium-offer-subtitle">Nature Retreat Package</p>
                     </div>
                 </div>
                 
-                <div class="compact-offer-content">
-                    <div class="offer-highlight">
-                        <span class="discount">₹500 OFF</span>
-                        <span class="condition">per night</span>
+                <div class="premium-offer-content">
+                    <div class="offer-highlight-gold">
+                        <span class="discount-main">₹500 OFF</span>
+                        <span class="discount-sub">per night</span>
+                        <div class="discount-badge">
+                            <i class="fas fa-tag"></i> Best Value
+                        </div>
                     </div>
-                    <div class="offer-duration">Min. 2 nights</div>
+                    
+                    <div class="offer-features">
+                        <span><i class="fas fa-check-circle"></i> Min. 2 nights stay</span>
+                        <span><i class="fas fa-check-circle"></i> Complimentary nature walk</span>
+                        <span><i class="fas fa-check-circle"></i> Mountain view room</span>
+                    </div>
+                    
+                    <p class="premium-offer-desc">Experience the serenity of Suru Valley with breathtaking views of Nun-Kun peaks.</p>
                 </div>
                 
-                <p class="compact-offer-desc">Perfect for Suru Valley & Nun-Kun exploration</p>
-                
-                <button class="compact-book-btn quick-book-trigger">
+                <button class="premium-book-btn offer-book-trigger" data-offer="Suru Valley Escape - Nature Retreat Package">
                     <span>View Details</span>
                     <i class="fas fa-calendar-alt"></i>
+                    <div class="btn-glow"></div>
                 </button>
             </div>
             
             <!-- Biker & Trekker Special -->
-            <div class="compact-offer-card">
-                <div class="offer-tag adventure">ADVENTURE</div>
-                <div class="compact-offer-header">
-                    <div class="compact-offer-icon">
+            <div class="premium-offer-card adventure-theme" data-offer="Adventure Seeker - Biker & Trekker Special (20% OFF + Late Checkout)">
+                <div class="premium-offer-tag adventure-tag">
+                    <i class="fas fa-route"></i> ADVENTURE
+                </div>
+                <div class="premium-offer-glow"></div>
+                
+                <div class="premium-offer-header">
+                    <div class="premium-offer-icon">
+                        <div class="icon-glow"></div>
                         <i class="fas fa-motorcycle"></i>
                     </div>
-                    <div class="compact-offer-title">
-                        <h3>Biker & Trekker</h3>
-                        <p class="compact-offer-subtitle">Adventure Special</p>
+                    <div class="premium-offer-title">
+                        <h3>Adventure Seeker</h3>
+                        <p class="premium-offer-subtitle">Biker & Trekker Special</p>
                     </div>
                 </div>
                 
-                <div class="compact-offer-content">
-                    <div class="offer-highlight">
-                        <span class="discount">20% OFF</span>
-                        <span class="condition">+ Late Checkout</span>
+                <div class="premium-offer-content">
+                    <div class="offer-highlight-adventure">
+                        <span class="discount-main">20% OFF</span>
+                        <span class="discount-sub">+ Late Checkout</span>
                     </div>
-                    <div class="offer-perks">
-                        <span><i class="fas fa-parking"></i> Free Parking</span>
+                    
+                    <div class="adventure-perks">
+                        <div class="perk">
+                            <i class="fas fa-parking"></i>
+                            <span>Free Secure Parking</span>
+                        </div>
+                        <div class="perk">
+                            <i class="fas fa-tools"></i>
+                            <span>Basic Bike Service</span>
+                        </div>
+                        <div class="perk">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Route Guidance</span>
+                        </div>
                     </div>
+                    
+                    <p class="premium-offer-desc">Specially crafted for bikers, trekkers & adventure groups exploring Ladakh.</p>
                 </div>
                 
-                <p class="compact-offer-desc">For bikers, trekkers & adventure groups</p>
-                
-                <button class="compact-book-btn quick-book-trigger">
+                <button class="premium-book-btn offer-book-trigger" data-offer="Adventure Seeker - Biker & Trekker Special">
                     <span>Get Deal</span>
                     <i class="fas fa-arrow-right"></i>
+                    <div class="btn-glow"></div>
                 </button>
             </div>
             
             <!-- Group Travel Deal -->
-            <div class="compact-offer-card">
-                <div class="offer-tag group">GROUP</div>
-                <div class="compact-offer-header">
-                    <div class="compact-offer-icon">
+            <div class="premium-offer-card group-theme" data-offer="Group Travel Deal (1 Room Free on 10+ rooms + Welcome Drink)">
+                <div class="premium-offer-tag group-tag">
+                    <i class="fas fa-users"></i> GROUP
+                </div>
+                <div class="premium-offer-glow"></div>
+                
+                <div class="premium-offer-header">
+                    <div class="premium-offer-icon">
+                        <div class="icon-glow"></div>
                         <i class="fas fa-users"></i>
                     </div>
-                    <div class="compact-offer-title">
+                    <div class="premium-offer-title">
                         <h3>Group Travel</h3>
-                        <p class="compact-offer-subtitle">Perfect for Large Groups</p>
+                        <p class="premium-offer-subtitle">Perfect for Large Groups</p>
                     </div>
                 </div>
                 
-                <div class="compact-offer-content">
-                    <div class="offer-highlight">
-                        <span class="discount">1 Room Free</span>
-                        <span class="condition">on 10+ rooms</span>
+                <div class="premium-offer-content">
+                    <div class="group-deal">
+                        <div class="deal-main">
+                            <span class="deal-value">1 Room Free</span>
+                            <span class="deal-condition">on 10+ rooms booking</span>
+                        </div>
+                        <div class="deal-bonus">
+                            <i class="fas fa-gift"></i>
+                            <span>Group Welcome Drink</span>
+                        </div>
                     </div>
+                    
+                    <div class="group-features">
+                        <span><i class="fas fa-check"></i> Spacious rooms</span>
+                        <span><i class="fas fa-check"></i> Conference facility</span>
+                        <span><i class="fas fa-check"></i> Custom meal plans</span>
+                    </div>
+                    
+                    <p class="premium-offer-desc">Special rates for travel companies, family reunions & large groups.</p>
                 </div>
                 
-                <p class="compact-offer-desc">Special rates for travel companies & family groups</p>
-                
-                <button class="compact-book-btn quick-book-trigger">
-                    <span>Inquire</span>
+                <button class="premium-book-btn offer-book-trigger" data-offer="Group Travel Deal">
+                    <span>Inquire Now</span>
                     <i class="fas fa-users"></i>
+                    <div class="btn-glow"></div>
                 </button>
             </div>
             
             <!-- Apricot Blossom Special -->
-            <div class="compact-offer-card seasonal-card">
-                <div class="offer-tag seasonal">SEASONAL</div>
-                <div class="compact-offer-header">
-                    <div class="compact-offer-icon blossom-icon">
+            <div class="premium-offer-card seasonal-theme" data-offer="Apricot Blossom Special - April–May Exclusive (20% OFF + Free Village Tour)">
+                <div class="premium-offer-tag seasonal-tag">
+                    <i class="fas fa-calendar-star"></i> SEASONAL
+                </div>
+                <div class="premium-offer-glow"></div>
+                
+                <div class="premium-offer-header">
+                    <div class="premium-offer-icon">
+                        <div class="icon-glow"></div>
                         <i class="fas fa-spa"></i>
                     </div>
-                    <div class="compact-offer-title">
+                    <div class="premium-offer-title">
                         <h3>Apricot Blossom</h3>
-                        <p class="compact-offer-subtitle">April–May Exclusive</p>
+                        <p class="premium-offer-subtitle">April–May Exclusive</p>
                     </div>
                 </div>
                 
-                <div class="compact-offer-content">
-                    <div class="offer-highlight">
-                        <span class="discount">20% OFF</span>
-                        <span class="condition">+ Free Village Tour</span>
+                <div class="premium-offer-content">
+                    <div class="seasonal-highlight">
+                        <div class="seasonal-discount">
+                            <span class="discount-main">20% OFF</span>
+                            <span class="discount-sub">+ Free Village Tour</span>
+                        </div>
+                        <div class="season-badge">
+                            <i class="fas fa-clock"></i>
+                            <span>Limited Period Offer</span>
+                        </div>
                     </div>
-                    <div class="season-badge">
-                        <i class="fas fa-calendar-star"></i>
-                        <span>Limited Period</span>
+                    
+                    <div class="seasonal-features">
+                        <div class="feature">
+                            <i class="fas fa-camera"></i>
+                            <span>Photography Tour</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-utensils"></i>
+                            <span>Apricot Tasting</span>
+                        </div>
                     </div>
+                    
+                    <p class="premium-offer-desc">Experience Kargil's famous apricot blossoms in full bloom season.</p>
                 </div>
                 
-                <p class="compact-offer-desc">Experience Kargil's famous apricot blossoms</p>
-                
-                <button class="compact-book-btn quick-book-trigger">
+                <button class="premium-book-btn offer-book-trigger" data-offer="Apricot Blossom Special - April–May Exclusive">
                     <span>Book Seasonal</span>
                     <i class="fas fa-blossom"></i>
+                    <div class="btn-glow"></div>
                 </button>
             </div>
             
             <!-- Custom Package -->
-            <div class="compact-offer-card custom-card">
-                <div class="compact-offer-header">
-                    <div class="compact-offer-icon custom-icon">
+            <div class="premium-offer-card custom-theme" data-offer="Custom Experience - Tailored Luxury Package">
+                <div class="premium-offer-tag custom-tag">
+                    <i class="fas fa-gem"></i> PREMIUM
+                </div>
+                <div class="premium-offer-glow"></div>
+                
+                <div class="premium-offer-header">
+                    <div class="premium-offer-icon">
+                        <div class="icon-glow"></div>
                         <i class="fas fa-gem"></i>
                     </div>
-                    <div class="compact-offer-title">
-                        <h3>Custom Package</h3>
-                        <p class="compact-offer-subtitle">Tailored Experience</p>
+                    <div class="premium-offer-title">
+                        <h3>Custom Experience</h3>
+                        <p class="premium-offer-subtitle">Tailored Luxury Package</p>
                     </div>
                 </div>
                 
-                <div class="compact-offer-content">
-                    <div class="custom-features">
-                        <span><i class="fas fa-check"></i> Personalized Itinerary</span>
-                        <span><i class="fas fa-check"></i> Flexible Dates</span>
-                        <span><i class="fas fa-check"></i> Special Requests</span>
+                <div class="premium-offer-content">
+                    <div class="custom-highlight">
+                        <div class="custom-badge">
+                            <i class="fas fa-crown"></i>
+                            <span>Personalized Itinerary</span>
+                        </div>
                     </div>
+                    
+                    <div class="custom-features-list">
+                        <div class="custom-feature">
+                            <i class="fas fa-star"></i>
+                            <span>Flexible Dates</span>
+                        </div>
+                        <div class="custom-feature">
+                            <i class="fas fa-star"></i>
+                            <span>Special Requests</span>
+                        </div>
+                        <div class="custom-feature">
+                            <i class="fas fa-star"></i>
+                            <span>VIP Service</span>
+                        </div>
+                    </div>
+                    
+                    <p class="premium-offer-desc">Tell us your preferences for a completely customized luxury experience.</p>
                 </div>
                 
-                <p class="compact-offer-desc">Tell us your preferences for a custom package</p>
-                
-                <a href="contact.html" class="compact-book-btn contact-btn">
-                    <span>Contact Us</span>
+                <a href="contact.html" class="premium-book-btn custom-contact-btn">
+                    <span>Design Your Stay</span>
                     <i class="fas fa-envelope"></i>
+                    <div class="btn-glow"></div>
                 </a>
             </div>
         </div>
         
-        <div class="offers-note">
+        <div class="offers-note premium-note">
             <i class="fas fa-info-circle"></i>
-            <p>All offers are subject to availability. Early booking recommended for best rates.</p>
+            <p>All offers are subject to availability. Early booking recommended for best rates and premium experience.</p>
         </div>
         <br>
     </div>
 </section>
 
-
-    <!-- Locations Map Section - MOVED BELOW SPECIAL OFFERS -->
+    <!-- Locations Map Section -->
     <section class="section map-section">
         <div class="container">
             <div class="section-header">

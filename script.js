@@ -1,6 +1,6 @@
 // ============================================
 // RANGYUL GROUP OF HOTELS - JAVASCRIPT
-// Updated with Leaflet Maps & Enhanced Animations
+// Updated with Premium Offers & Enhanced Animations
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -14,11 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initPropertyCards();
     initContactCards();
     initSocialIcons();
-    initOfferCards();
     initStatsCounter();
     updateCurrentYear();
     initQuickBookingModal();
-    initSpecialOffersAnimations();
+    initPremiumOffers();
     
     // Initialize Leaflet Map
     initLeafletMap();
@@ -148,28 +147,52 @@ function initHeroSlider() {
 function initQuickBookingModal() {
     const modal = document.getElementById('bookingModal');
     const quickBookBtns = document.querySelectorAll('.quick-book-trigger, .hero-quick-book-btn');
+    const offerBookBtns = document.querySelectorAll('.offer-book-trigger');
     const closeBtn = document.querySelector('.modal-close');
     const form = document.getElementById('quickBookingForm');
+    const selectedOfferInput = document.getElementById('selected-offer');
     
     if (!modal || !form) return;
     
-    // Open modal
+    // Open modal from regular buttons
     quickBookBtns.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Set default dates
-            const today = new Date();
-            const tomorrow = new Date(today);
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            
-            document.getElementById('booking-checkin').valueAsDate = today;
-            document.getElementById('booking-checkout').valueAsDate = tomorrow;
+            selectedOfferInput.value = '';
+            openBookingModal();
         });
     });
+    
+    // Open modal from offer buttons with specific offer
+    offerBookBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const offer = this.getAttribute('data-offer');
+            selectedOfferInput.value = offer;
+            openBookingModal();
+        });
+    });
+    
+    // Open modal function
+    function openBookingModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Set default dates
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        
+        document.getElementById('booking-checkin').valueAsDate = today;
+        document.getElementById('booking-checkout').valueAsDate = tomorrow;
+        
+        // Auto-focus first input
+        setTimeout(() => {
+            document.getElementById('booking-name').focus();
+        }, 300);
+    }
     
     // Close modal
     function closeModal() {
@@ -203,7 +226,8 @@ function initQuickBookingModal() {
             checkout: document.getElementById('booking-checkout').value,
             guests: document.getElementById('booking-guests').value,
             property: document.getElementById('booking-property').value,
-            message: document.getElementById('booking-message').value.trim()
+            message: document.getElementById('booking-message').value.trim(),
+            offer: selectedOfferInput.value
         };
         
         // Validate required fields
@@ -227,16 +251,28 @@ function initQuickBookingModal() {
         });
         
         // Create WhatsApp message
-        const whatsappMessage = `*New Booking Request - Rangyul Hotels*%0A%0A` +
+        let whatsappMessage = `*New Booking Request - Rangyul Hotels*%0A%0A` +
                                `*Name:* ${formData.name}%0A` +
                                `*Phone:* ${formData.phone}%0A` +
                                (formData.email ? `*Email:* ${formData.email}%0A` : '') +
                                `*Check-in:* ${formattedCheckin}%0A` +
                                `*Check-out:* ${formattedCheckout}%0A` +
                                `*Guests:* ${formData.guests}%0A` +
-                               `*Property:* ${formData.property}%0A` +
-                               (formData.message ? `*Message:* ${formData.message}%0A%0A` : '%0A') +
-                               `_Sent via Rangyul Website Quick Booking_`;
+                               `*Property:* ${formData.property}%0A`;
+        
+        // Add offer information if selected
+        if (formData.offer) {
+            whatsappMessage += `*Selected Offer:* ${formData.offer}%0A`;
+        }
+        
+        // Add custom message if provided
+        if (formData.message) {
+            whatsappMessage += `*Message:* ${formData.message}%0A%0A`;
+        } else {
+            whatsappMessage += '%0A';
+        }
+        
+        whatsappMessage += `_Sent via Rangyul Website Quick Booking_`;
         
         // Redirect to WhatsApp
         const whatsappUrl = `https://wa.me/918899452417?text=${whatsappMessage}`;
@@ -255,6 +291,7 @@ function initQuickBookingModal() {
             // Reset form and close modal after delay
             setTimeout(() => {
                 form.reset();
+                selectedOfferInput.value = '';
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
                 submitBtn.style.background = '';
@@ -326,61 +363,40 @@ function initQuickBookingModal() {
     document.head.appendChild(style);
 }
 
-// ==================== SPECIAL OFFERS ANIMATIONS ====================
-function initSpecialOffersAnimations() {
-    const offerCards = document.querySelectorAll('.animated-offer');
+// ==================== PREMIUM OFFERS ====================
+function initPremiumOffers() {
+    const offerCards = document.querySelectorAll('.premium-offer-card');
     
-    // Add staggered animation delays
-    offerCards.forEach((card, index) => {
-        card.style.setProperty('--card-index', index);
-        card.style.animationDelay = `${index * 0.2}s`;
-        
-        // Add hover effects for classic icons
-        card.addEventListener('mouseenter', function() {
-            const icon = this.querySelector('.classic-animated-icon');
-            const button = this.querySelector('.classic-animated-button');
-            
-            if (icon) {
-                // Add a subtle shake effect on hover
-                icon.style.animation = 'elegantPulse 1s ease-out forwards';
-            }
-            
-            if (button) {
-                button.classList.add('hover');
-                const icon = button.querySelector('i');
-                if (icon) {
-                    icon.style.transform = 'translateX(5px)';
+    // Add hover effects
+    offerCards.forEach(card => {
+        // Add click event for the whole card (except buttons)
+        card.addEventListener('click', function(e) {
+            if (!e.target.closest('.premium-book-btn') && !e.target.closest('a')) {
+                const offerBtn = this.querySelector('.premium-book-btn');
+                if (offerBtn && offerBtn.classList.contains('offer-book-trigger')) {
+                    offerBtn.click();
                 }
             }
         });
         
-        card.addEventListener('mouseleave', function() {
-            const icon = this.querySelector('.classic-animated-icon');
-            const button = this.querySelector('.classic-animated-button');
-            
-            if (icon) {
-                // Return to breathing animation
-                setTimeout(() => {
-                    icon.style.animation = 'elegantBreathing 4s ease-in-out infinite';
-                }, 1000);
-            }
-            
-            if (button) {
-                button.classList.remove('hover');
-                const icon = button.querySelector('i');
-                if (icon) {
-                    icon.style.transform = 'translateX(0)';
+        // Add keyboard navigation
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const offerBtn = this.querySelector('.premium-book-btn');
+                if (offerBtn && offerBtn.classList.contains('offer-book-trigger')) {
+                    offerBtn.click();
                 }
             }
         });
     });
     
-    // Initialize offer cards animation
+    // Initialize intersection observer for animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.style.transform = 'translateY(0) rotateX(0)';
                 observer.unobserve(entry.target);
             }
         });
@@ -390,9 +406,6 @@ function initSpecialOffersAnimations() {
     });
     
     offerCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s var(--transition-smooth), transform 0.6s var(--transition-smooth)';
         observer.observe(card);
     });
 }
@@ -400,11 +413,11 @@ function initSpecialOffersAnimations() {
 // ==================== SCROLL ANIMATIONS ====================
 function initScrollAnimations() {
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelectorAll('.feature-item, .property-card, .contact-card, .offer-card, .stat-item').forEach(el => el.style.opacity = '1');
+        document.querySelectorAll('.feature-item, .property-card, .contact-card, .premium-offer-card, .stat-item, .map-property-card').forEach(el => el.style.opacity = '1');
         return;
     }
     
-    const animatedElements = document.querySelectorAll('.feature-item, .property-card, .offer-card, .stat-item, .map-property-card');
+    const animatedElements = document.querySelectorAll('.feature-item, .property-card, .premium-offer-card, .stat-item, .map-property-card, .content-item');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -541,23 +554,6 @@ function initSocialIcons() {
         
         icon.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
-        });
-    });
-}
-
-// ==================== OFFER CARDS ====================
-function initOfferCards() {
-    const offerLinks = document.querySelectorAll('.offer-link');
-    
-    offerLinks.forEach(link => {
-        link.addEventListener('mouseenter', function() {
-            const icon = this.querySelector('i');
-            if (icon) icon.style.transform = 'translateX(5px)';
-        });
-        
-        link.addEventListener('mouseleave', function() {
-            const icon = this.querySelector('i');
-            if (icon) icon.style.transform = 'translateX(0)';
         });
     });
 }
