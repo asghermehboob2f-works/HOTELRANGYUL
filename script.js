@@ -447,12 +447,12 @@ function initPropertyCards() {
     propertyCards.forEach((card, index) => {
         card.addEventListener('mouseenter', function() {
             const glow = this.querySelector('.property-glow');
-            if (glow) glow.style.opacity = '1';
+            if (glow) glow.style.opacity = '0.8';
         });
         
         card.addEventListener('mouseleave', function() {
             const glow = this.querySelector('.property-glow');
-            if (glow) glow.style.opacity = '0';
+            if (glow) glow.style.opacity = '0.3';
         });
         
         initPropertySlider(card, index);
