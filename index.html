@@ -9,16 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 </head>
 <body>
-    <!-- Scroll Progress Indicator -->
     <div class="scroll-progress"></div>
 
-    <!-- Header & Navigation -->
     <header class="header">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -41,7 +36,6 @@
         </div>
     </header>
 
-    <!-- Quick Booking Modal -->
     <div class="booking-modal" id="bookingModal">
         <div class="modal-overlay"></div>
         <div class="modal-content">
@@ -105,7 +99,6 @@
                         </select>
                     </div>
                     
-                    <!-- Hidden field for selected offer -->
                     <input type="hidden" id="selected-offer" value="">
                     
                     <div class="form-group">
@@ -125,19 +118,15 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <!-- Image Slider -->
         <div class="hero-slider">
             <div class="hero-slide active" style="background-image: url('images/hero-1.jpg');"></div>
             <div class="hero-slide" style="background-image: url('images/hero-2.jpg');"></div>
             <div class="hero-slide" style="background-image: url('images/hero-3.jpg');"></div>
         </div>
         
-        <!-- Dark Overlay -->
         <div class="hero-overlay"></div>
         
-        <!-- Hero Content -->
         <div class="hero-content">
             <div class="hero-title">
                 <div class="hero-pretext">WELCOME TO</div>
@@ -146,7 +135,6 @@
                     <span class="hero-brand-sub">GROUP OF HOTELS</span>
                 </div>
     <br>            
-                <!-- Quick Book CTA Button -->
                 <button class="hero-quick-book-btn quick-book-trigger">
                     <i class="fas fa-calendar-alt"></i> Quick Book
                 </button>
@@ -160,7 +148,6 @@
         </div>
     </section>
 
-    <!-- Our Properties Section -->
     <section class="section properties-section">
         <div class="container">
             <div class="section-header">
@@ -169,7 +156,6 @@
             </div>
             
             <div class="properties-grid">
-                <!-- Hotel Rangyul Card -->
                 <a href="hotel-rangyul.html" class="property-card">
                     <div class="property-image-container">
                         <div class="property-slider">
@@ -195,7 +181,6 @@
                     </div>
                 </a>
                 
-                <!-- Rangyul Resort Card -->
                 <a href="rangyul-resort.html" class="property-card">
                     <div class="property-image-container">
                         <div class="property-slider">
@@ -221,7 +206,6 @@
                     </div>
                 </a>
                 
-                <!-- Galaxy Hotel Card -->
                 <a href="galaxy-hotel.html" class="property-card">
                     <div class="property-image-container">
                         <div class="property-slider">
@@ -250,10 +234,8 @@
         </div>
     </section>
 
-    <!-- Our Presence Section -->
     <section class="section presence-section">
         <div class="container">
-            <!-- Section Header -->
             <div class="presence-header">
                 <h2 class="section-title presence-title">OUR PRESENCE</h2>
                 <div class="section-divider"></div>
@@ -266,9 +248,7 @@
                 </p>
             </div>
 
-            <!-- Main Content Container -->
             <div class="presence-content">
-                <!-- Main Description Card -->
                 <div class="presence-main-card">
                     <div class="card-header">
                         <div class="header-icon">
@@ -278,7 +258,6 @@
                     </div>
                     
                     <div class="card-body">
-                        <!-- Row 1 -->
                         <div class="content-row">
                             <div class="content-item">
                                 <div class="item-icon">
@@ -301,7 +280,6 @@
                             </div>
                         </div>
                         
-                        <!-- Row 2 -->
                         <div class="content-row">
                             <div class="content-item">
                                 <div class="item-icon">
@@ -326,7 +304,6 @@
                     </div>
                 </div>
 
-                <!-- Stats Section -->
                 <div class="presence-stats">
                     <h3 class="stats-title">Our Impact in Numbers</h3>
                     <div class="stats-grid">
@@ -367,7 +344,6 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
     <section class="section why-choose-section">
         <div class="container">
             <div class="section-header">
@@ -420,8 +396,7 @@
         </div>
     </section>
 
-   <!-- Special Offers Section - Enhanced Premium Version -->
-<section class="section special-offers-section premium-offers">
+   <section class="section special-offers-section premium-offers">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title gold-flourish">EXCLUSIVE OFFERS</h2>
@@ -430,7 +405,6 @@
         </div>
         
         <div class="premium-offers-grid">
-            <!-- Transit Traveller Offer -->
             <div class="premium-offer-card highlight-popular" data-offer="Transit Traveller - Leh–Srinagar–Zanskar Route (Free Breakfast + Early Check-In)">
                 <div class="premium-offer-tag popular-tag">
                     <i class="fas fa-fire"></i> POPULAR
@@ -443,7 +417,7 @@
                         <i class="fas fa-route"></i>
                     </div>
                     <div class="premium-offer-title">
-                        <h3>Transit Traveller</h3>
+                        <h3>Traveller</h3>
                         <p class="premium-offer-subtitle">Leh–Srinagar–Zanskar Route</p>
                     </div>
                 </div>
@@ -485,7 +459,6 @@
                 </button>
             </div>
             
-            <!-- Suru Valley Escape -->
             <div class="premium-offer-card resort-theme" data-offer="Suru Valley Escape - Nature Retreat Package (₹500 OFF per night + Free Nature Walk)">
                 <div class="premium-offer-tag resort-tag">
                     <i class="fas fa-mountain"></i> RESORT
@@ -498,7 +471,7 @@
                         <i class="fas fa-mountain-sun"></i>
                     </div>
                     <div class="premium-offer-title">
-                        <h3>Suru Valley Escape</h3>
+                        <h3>Valley Escape</h3>
                         <p class="premium-offer-subtitle">Nature Retreat Package</p>
                     </div>
                 </div>
@@ -528,7 +501,6 @@
                 </button>
             </div>
             
-            <!-- Biker & Trekker Special -->
             <div class="premium-offer-card adventure-theme" data-offer="Adventure Seeker - Biker & Trekker Special (20% OFF + Late Checkout)">
                 <div class="premium-offer-tag adventure-tag">
                     <i class="fas fa-route"></i> ADVENTURE
@@ -541,7 +513,7 @@
                         <i class="fas fa-motorcycle"></i>
                     </div>
                     <div class="premium-offer-title">
-                        <h3>Adventure Seeker</h3>
+                        <h3>Adventurer</h3>
                         <p class="premium-offer-subtitle">Biker & Trekker Special</p>
                     </div>
                 </div>
@@ -577,7 +549,6 @@
                 </button>
             </div>
             
-            <!-- Group Travel Deal -->
             <div class="premium-offer-card group-theme" data-offer="Group Travel Deal (1 Room Free on 10+ rooms + Welcome Drink)">
                 <div class="premium-offer-tag group-tag">
                     <i class="fas fa-users"></i> GROUP
@@ -623,7 +594,6 @@
                 </button>
             </div>
             
-            <!-- Apricot Blossom Special -->
             <div class="premium-offer-card seasonal-theme" data-offer="Apricot Blossom Special - April–May Exclusive (20% OFF + Free Village Tour)">
                 <div class="premium-offer-tag seasonal-tag">
                     <i class="fas fa-calendar-star"></i> SEASONAL
@@ -674,7 +644,6 @@
                 </button>
             </div>
             
-            <!-- Custom Package -->
             <div class="premium-offer-card custom-theme" data-offer="Custom Experience - Tailored Luxury Package">
                 <div class="premium-offer-tag custom-tag">
                     <i class="fas fa-gem"></i> PREMIUM
@@ -687,7 +656,7 @@
                         <i class="fas fa-gem"></i>
                     </div>
                     <div class="premium-offer-title">
-                        <h3>Custom Experience</h3>
+                        <h3>Custom Exp.</h3>
                         <p class="premium-offer-subtitle">Tailored Luxury Package</p>
                     </div>
                 </div>
@@ -734,7 +703,6 @@
     </div>
 </section>
 
-    <!-- Locations Map Section -->
     <section class="section map-section">
         <div class="container">
             <div class="section-header">
@@ -775,20 +743,16 @@
                 </div>
                 
                 <div class="map-display" id="kargil-map">
-                    <!-- Leaflet Map will be loaded here -->
                     <div id="leaflet-map" style="width: 100%; height: 100%; border-radius: var(--radius-large);"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-divider"></div>
         <div class="container">
-            <!-- Main Footer Content -->
             <div class="footer-main">
-                <!-- Brand Column (Left) -->
                 <div class="footer-brand">
                     <div class="footer-logo-container">
                         <img src="images/logo.png" alt="Rangyul Logo" class="footer-logo">
@@ -800,7 +764,6 @@
                     <p class="footer-tagline">Where Himalayan majesty meets modern luxury. Experience premium hospitality in the heart of Kargil.</p>
                 </div>
                 
-                <!-- Contact Column (Right) -->
                 <div class="footer-contact">
                     <h4 class="footer-heading">Contact Information</h4>
                     <div class="contact-info-footer">
@@ -837,7 +800,6 @@
                 </div>
             </div>
             
-            <!-- Social Media Section (Center) -->
             <div class="footer-social-section">
                 <h4 class="social-heading">Connect With Us</h4>
                 <div class="social-icons-container">
@@ -857,7 +819,6 @@
             </div>
             
             <div class="footer-bottom">
-                <!-- Legal Links Section -->
                 <div class="legal-links-footer">
                     <a href="privacy-policy.html">
                         <i class="fas fa-shield-alt"></i>
@@ -879,10 +840,7 @@
         </div>
     </footer>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <script src="script.js"></script>
 </body>
 </html>

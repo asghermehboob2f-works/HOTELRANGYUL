@@ -1,12 +1,4 @@
-/* ========================================
-   RANGYUL GROUP OF HOTELS - PREMIUM THEME
-   High-end dark theme with golden accents
-   Enhanced Version with Premium Offers
-   ======================================== */
-
-/* ==================== ROOT VARIABLES ==================== */
 :root {
-  /* Color Palette - Dark Matte with Golden Accents */
   --luxury-black: #0a0a0a;
   --luxury-dark: #111111;
   --luxury-gray: #1a1a1a;
@@ -19,36 +11,30 @@
   --luxury-navy: #1a2332;
   --luxury-green: #2d4a2d;
   
-  /* Typography */
   --font-cinzel: 'Cinzel', Georgia, serif;
   --font-playfair: 'Playfair Display', Georgia, serif;
   --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   
-  /* Spacing */
   --container-max: 1280px;
   --section-padding: 100px;
   --section-padding-mobile: 60px;
   
-  /* Transitions */
   --transition-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
   --transition-fast: 0.3s;
   --transition-medium: 0.5s;
   --transition-slow: 0.8s;
   
-  /* Shadows */
   --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.4);
   --shadow-large: 0 8px 32px rgba(0, 0, 0, 0.5);
   --shadow-xlarge: 0 20px 60px rgba(0, 0, 0, 0.7);
   --shadow-gold: 0 0 20px rgba(212, 175, 55, 0.5);
   
-  /* Border Radius */
   --radius-small: 4px;
   --radius-medium: 8px;
   --radius-large: 12px;
   --radius-xl: 16px;
   
-  /* Z-index layers */
   --z-header: 1000;
   --z-overlay: 900;
   --z-modal: 1100;
@@ -57,7 +43,6 @@
   --z-hero-content: 3;
 }
 
-/* ==================== RESET & BASE ==================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -126,7 +111,6 @@ ul, ol {
   list-style: none;
 }
 
-/* ==================== SCROLL PROGRESS ==================== */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -139,7 +123,6 @@ ul, ol {
   box-shadow: var(--shadow-gold);
 }
 
-/* ==================== HEADER & NAVIGATION ==================== */
 .header {
   position: fixed;
   top: 0;
@@ -155,12 +138,8 @@ ul, ol {
 }
 
 @keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
 }
 
 .header.scrolled {
@@ -198,12 +177,8 @@ ul, ol {
 }
 
 @keyframes logoPulse {
-  0%, 100% {
-    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
-  }
-  50% {
-    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.7));
-  }
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3)); }
+  50% { filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.7)); }
 }
 
 .logo:hover .logo-img {
@@ -212,12 +187,8 @@ ul, ol {
 }
 
 @keyframes logoPulseFast {
-  0%, 100% {
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
-  }
-  50% {
-    filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.9));
-  }
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6)); }
+  50% { filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.9)); }
 }
 
 .nav-menu {
@@ -282,7 +253,6 @@ ul, ol {
   display: none;
 }
 
-/* Mobile Menu Toggle */
 .mobile-menu-toggle {
   display: none;
   flex-direction: column;
@@ -312,7 +282,6 @@ ul, ol {
   transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* ==================== QUICK BOOKING MODAL ==================== */
 .booking-modal {
   position: fixed;
   top: 0;
@@ -516,7 +485,6 @@ textarea.booking-input {
   font-size: 11px;
 }
 
-/* ==================== HERO SECTION ==================== */
 .hero {
   position: relative;
   height: 100vh;
@@ -524,7 +492,6 @@ textarea.booking-input {
   overflow: hidden;
 }
 
-/* Hero Slider */
 .hero-slider {
   position: absolute;
   top: 0;
@@ -552,7 +519,6 @@ textarea.booking-input {
   opacity: 1;
 }
 
-/* Hero Overlay */
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -569,7 +535,6 @@ textarea.booking-input {
   z-index: var(--z-hero-overlay);
 }
 
-/* Hero Content */
 .hero-content {
   position: relative;
   z-index: var(--z-hero-content);
@@ -605,7 +570,6 @@ textarea.booking-input {
   }
 }
 
-/* Welcome Text */
 .hero-pretext {
   font-family: var(--font-playfair);
   font-size: 1.125rem;
@@ -630,7 +594,6 @@ textarea.booking-input {
   }
 }
 
-/* Brand Name */
 .hero-brand {
   display: flex;
   flex-direction: column;
@@ -680,7 +643,6 @@ textarea.booking-input {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Divider */
 .hero-divider {
   width: 100px;
   height: 1px;
@@ -704,7 +666,6 @@ textarea.booking-input {
   }
 }
 
-/* Tagline */
 .hero-tagline-container {
   margin-bottom: 3rem;
   max-width: 800px;
@@ -721,7 +682,6 @@ textarea.booking-input {
   padding: 0 1rem;
 }
 
-/* Quick Book Button in Hero */
 .hero-quick-book-btn {
   background: linear-gradient(135deg, var(--luxury-gold) 0%, var(--luxury-gold-light) 100%);
   color: var(--luxury-black);
@@ -744,7 +704,6 @@ textarea.booking-input {
   box-shadow: var(--shadow-large), 0 0 30px rgba(212, 175, 55, 0.4);
 }
 
-/* Scroll Indicator */
 .hero-scroll-indicator {
   display: flex;
   flex-direction: column;
@@ -814,7 +773,6 @@ textarea.booking-input {
   font-weight: 400;
 }
 
-/* ==================== COMMON SECTION STYLES ==================== */
 .section {
   padding: var(--section-padding) 0;
   position: relative;
@@ -860,7 +818,6 @@ textarea.booking-input {
   text-align: center;
 }
 
-/* ==================== OUR PROPERTIES SECTION ==================== */
 .properties-section {
   background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(17, 17, 17, 0.95) 100%);
   position: relative;
@@ -925,7 +882,6 @@ textarea.booking-input {
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
-/* Property Slider */
 .property-slider {
   position: absolute;
   top: 0;
@@ -1090,10 +1046,6 @@ textarea.booking-input {
   transform: translateX(5px);
 }
 
-/* ============================================
-   OUR PRESENCE SECTION
-   ============================================ */
-
 .presence-section {
     background: var(--luxury-dark);
     position: relative;
@@ -1101,7 +1053,6 @@ textarea.booking-input {
     overflow: hidden;
 }
 
-/* Background Pattern */
 .presence-section::before {
     content: '';
     position: absolute;
@@ -1117,7 +1068,6 @@ textarea.booking-input {
     z-index: 1;
 }
 
-/* Header Styles */
 .presence-header {
     text-align: center;
     margin-bottom: 60px;
@@ -1157,13 +1107,11 @@ textarea.booking-input {
     text-align: center;
 }
 
-/* Main Content Container */
 .presence-content {
     position: relative;
     z-index: 2;
 }
 
-/* Main Card Styling */
 .presence-main-card {
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
     border-radius: var(--radius-xl);
@@ -1186,7 +1134,6 @@ textarea.booking-input {
     background: linear-gradient(90deg, var(--luxury-gold), var(--luxury-gold-light), var(--luxury-gold));
 }
 
-/* Card Header */
 .card-header {
     display: flex;
     align-items: center;
@@ -1218,7 +1165,6 @@ textarea.booking-input {
     line-height: 1.3;
 }
 
-/* Content Grid - Desktop Layout */
 .card-body {
     display: flex;
     flex-direction: column;
@@ -1284,7 +1230,6 @@ textarea.booking-input {
     box-shadow: var(--shadow-medium);
 }
 
-/* Content Item Icons */
 .item-icon {
     color: var(--luxury-gold);
     font-size: 24px;
@@ -1304,7 +1249,6 @@ textarea.booking-input {
     transform: scale(1.1) rotate(5deg);
 }
 
-/* Content Text */
 .item-content {
     flex: 1;
 }
@@ -1331,7 +1275,6 @@ textarea.booking-input {
     font-weight: 600;
 }
 
-/* Stats Section */
 .presence-stats {
     text-align: center;
 }
@@ -1356,7 +1299,6 @@ textarea.booking-input {
     background: linear-gradient(90deg, transparent, var(--luxury-gold), transparent);
 }
 
-/* Stats Grid */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1396,7 +1338,6 @@ textarea.booking-input {
     background: rgba(26, 26, 26, 0.9);
 }
 
-/* Stat Icons */
 .stat-icon {
     color: var(--luxury-gold);
     font-size: 32px;
@@ -1405,7 +1346,6 @@ textarea.booking-input {
     justify-content: center;
 }
 
-/* Stat Numbers */
 .stat-number {
     font-family: var(--font-cinzel);
     font-size: 48px;
@@ -1425,7 +1365,6 @@ textarea.booking-input {
     opacity: 0.9;
 }
 
-/* ==================== WHY CHOOSE SECTION ==================== */
 .why-choose-section {
   background: var(--luxury-gray);
   position: relative;
@@ -1481,7 +1420,6 @@ textarea.booking-input {
   transform: translateX(0);
 }
 
-/* Wavy up-down animation */
 .feature-item {
   animation: gentleFloat 6s ease-in-out infinite;
 }
@@ -1495,22 +1433,10 @@ textarea.booking-input {
   }
 }
 
-/* Different animation delays for each feature */
-.feature-item:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.feature-item:nth-child(2) {
-  animation-delay: 1.5s;
-}
-
-.feature-item:nth-child(3) {
-  animation-delay: 3s;
-}
-
-.feature-item:nth-child(4) {
-  animation-delay: 4.5s;
-}
+.feature-item:nth-child(1) { animation-delay: 0s; }
+.feature-item:nth-child(2) { animation-delay: 1.5s; }
+.feature-item:nth-child(3) { animation-delay: 3s; }
+.feature-item:nth-child(4) { animation-delay: 4.5s; }
 
 .feature-item:hover {
   background: rgba(245, 241, 232, 0.05);
@@ -1553,11 +1479,6 @@ textarea.booking-input {
   text-align: center;
 }
 
-/* ============================================
-   PREMIUM SPECIAL OFFERS SECTION
-   Enhanced with animations and glowing effects
-   ============================================ */
-
 .premium-offers {
     background: linear-gradient(135deg, 
         rgba(17, 17, 17, 0.98) 0%, 
@@ -1599,7 +1520,6 @@ textarea.booking-input {
     }
 }
 
-/* Premium Offers Grid */
 .premium-offers-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1610,7 +1530,6 @@ textarea.booking-input {
     z-index: 2;
 }
 
-/* Premium Offer Card */
 .premium-offer-card {
     background: linear-gradient(145deg, 
         rgba(26, 26, 26, 0.95) 0%, 
@@ -1674,7 +1593,6 @@ textarea.booking-input {
     opacity: 1;
 }
 
-/* Card Glow Effect */
 .premium-offer-glow {
     position: absolute;
     top: 0;
@@ -1718,7 +1636,6 @@ textarea.booking-input {
     }
 }
 
-/* Theme Variations */
 .highlight-popular {
     border: 2px solid rgba(212, 175, 55, 0.3);
     background: linear-gradient(145deg, 
@@ -1761,21 +1678,20 @@ textarea.booking-input {
         rgba(26, 26, 26, 0.95) 100%);
 }
 
-/* Premium Offer Tags - Smaller Size */
 .premium-offer-tag {
     position: absolute;
     top: 15px;
     right: 15px;
-    padding: 5px 12px;
-    border-radius: 12px;
-    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 9px;
     font-weight: 700;
     letter-spacing: 0.8px;
     text-transform: uppercase;
     z-index: 3;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
     box-shadow: var(--shadow-small);
 }
 
@@ -1814,7 +1730,6 @@ textarea.booking-input {
     border: 1px solid rgba(45, 74, 45, 0.3);
 }
 
-/* Premium Offer Header */
 .premium-offer-header {
     display: flex;
     align-items: center;
@@ -1891,7 +1806,6 @@ textarea.booking-input {
     transform: scale(1.1);
 }
 
-/* Premium Offer Title */
 .premium-offer-title h3 {
     font-family: var(--font-cinzel);
     font-size: 24px;
@@ -1917,7 +1831,6 @@ textarea.booking-input {
     margin: 0;
 }
 
-/* Premium Offer Content */
 .premium-offer-content {
     margin-bottom: 25px;
     flex-grow: 1;
@@ -1988,7 +1901,6 @@ textarea.booking-input {
     display: block;
 }
 
-/* Smaller Discount Badge */
 .discount-badge-small {
     position: absolute;
     top: 10px;
@@ -2120,7 +2032,6 @@ textarea.booking-input {
     margin-bottom: 15px;
 }
 
-/* Smaller Season Badge */
 .season-badge-small {
     display: flex;
     align-items: center;
@@ -2185,7 +2096,6 @@ textarea.booking-input {
     text-align: center;
 }
 
-/* Smaller Custom Badge */
 .custom-badge-small {
     display: flex;
     align-items: center;
@@ -2245,7 +2155,6 @@ textarea.booking-input {
     font-size: 12px;
 }
 
-/* Offer Stats */
 .offer-stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -2277,7 +2186,6 @@ textarea.booking-input {
     letter-spacing: 1px;
 }
 
-/* Premium Offer Description */
 .premium-offer-desc {
     color: rgba(245, 241, 232, 0.7);
     font-size: 14px;
@@ -2286,7 +2194,6 @@ textarea.booking-input {
     flex-grow: 1;
 }
 
-/* Premium Book Button */
 .premium-book-btn {
     background: linear-gradient(135deg, var(--luxury-gold) 0%, var(--luxury-gold-light) 100%);
     color: var(--luxury-black);
@@ -2360,7 +2267,6 @@ textarea.booking-input {
     transform: translateX(5px);
 }
 
-/* Pulse Effect for Popular Offer */
 .pulse-effect {
     animation: pulse 2s infinite;
 }
@@ -2377,7 +2283,6 @@ textarea.booking-input {
     }
 }
 
-/* Offers Note */
 .offers-note {
     display: flex;
     align-items: center;
@@ -2410,7 +2315,6 @@ textarea.booking-input {
     text-align: center;
 }
 
-/* ==================== MAP SECTION ==================== */
 .map-section {
   background: var(--luxury-dark);
   position: relative;
@@ -2568,14 +2472,12 @@ textarea.booking-input {
   position: relative;
 }
 
-/* Leaflet Map Styling */
 #leaflet-map {
   width: 100%;
   height: 100%;
   border-radius: var(--radius-large);
 }
 
-/* ==================== FOOTER ==================== */
 .footer {
   background: #070707;
   color: var(--luxury-ivory);
@@ -2820,7 +2722,6 @@ textarea.booking-input {
   text-align: center;
 }
 
-/* Legal Links Footer Styles */
 .legal-links-footer {
     display: flex;
     justify-content: center;
@@ -2890,7 +2791,6 @@ textarea.booking-input {
   transform: translateX(-3px);
 }
 
-/* Gold Flourish */
 .gold-flourish {
   position: relative;
 }
@@ -2914,11 +2814,6 @@ textarea.booking-input {
   right: -32px;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
-
-/* Tablet (1024px and below) */
 @media (max-width: 1024px) {
   .hero-brand-part {
     font-size: 4rem;
@@ -2928,13 +2823,9 @@ textarea.booking-input {
     font-size: 40px;
   }
   
-  .presence-grid {
+  .content-row {
     grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .presence-right {
-    position: static;
+    gap: 20px;
   }
   
   .stats-grid {
@@ -2953,7 +2844,6 @@ textarea.booking-input {
     max-width: 100%;
   }
   
-  /* Our Presence Responsive */
   .content-row {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -2963,7 +2853,6 @@ textarea.booking-input {
     padding: 25px;
   }
   
-  /* Premium Offers Grid */
   .premium-offers-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
@@ -3039,13 +2928,11 @@ textarea.booking-input {
     padding: 12px;
   }
   
-  /* Modal for tablet */
   .modal-content {
     max-width: 500px;
   }
 }
 
-/* Mobile (768px and below) */
 @media (max-width: 768px) {
   :root {
     --section-padding: 60px;
@@ -3148,7 +3035,6 @@ textarea.booking-input {
     font-size: 18px;
   }
   
-  /* Our Presence Mobile */
   .presence-section {
     padding: 60px 0;
   }
@@ -3237,7 +3123,6 @@ textarea.booking-input {
     font-size: 12px;
   }
   
-  /* Premium Offers Mobile */
   .premium-offers {
     padding: 60px 0 40px;
   }
@@ -3350,7 +3235,6 @@ textarea.booking-input {
     gap: 20px;
   }
   
-  /* Disable wavy animation on mobile for better performance */
   .feature-item {
     animation: none;
   }
@@ -3424,7 +3308,6 @@ textarea.booking-input {
     gap: 20px;
   }
   
-  /* Modal for mobile */
   .modal-content {
     max-width: 95%;
     margin: 10px;
@@ -3455,7 +3338,6 @@ textarea.booking-input {
   }
 }
 
-/* Small Mobile (480px and below) */
 @media (max-width: 480px) {
   .hero-brand-part {
     font-size: 2.25rem;
@@ -3484,7 +3366,6 @@ textarea.booking-input {
     font-size: 28px;
   }
   
-  /* Our Presence Small Mobile */
   .presence-title {
     font-size: 28px;
   }
@@ -3514,7 +3395,6 @@ textarea.booking-input {
     font-size: 36px;
   }
   
-  /* Premium Offers Small Mobile */
   .premium-offers-grid {
     gap: 15px;
   }
@@ -3575,7 +3455,6 @@ textarea.booking-input {
     font-size: 20px;
   }
   
-  /* Small mobile modal */
   .modal-content {
     max-width: 98%;
     margin: 5px;
@@ -3596,18 +3475,13 @@ textarea.booking-input {
   }
 }
 
-/* ==================== UTILITY CLASSES ==================== */
 .fade-in {
   animation: fadeIn 0.6s var(--transition-smooth) forwards;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .slide-up {
@@ -3625,7 +3499,6 @@ textarea.booking-input {
   }
 }
 
-/* ==================== ACCESSIBILITY ==================== */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -3647,7 +3520,6 @@ textarea.booking-input {
   }
 }
 
-/* Focus styles for keyboard navigation */
 a:focus,
 button:focus,
 input:focus,
@@ -3656,7 +3528,6 @@ select:focus {
   outline-offset: 2px;
 }
 
-/* Add these to ensure map is visible on mobile */
 #leaflet-map {
   min-height: 300px;
 }
@@ -3665,7 +3536,6 @@ select:focus {
   min-height: 300px;
 }
 
-/* Mobile Menu Fix */
 @media (max-width: 992px) {
   .nav-menu {
     position: fixed;

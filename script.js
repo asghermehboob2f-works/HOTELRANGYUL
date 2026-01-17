@@ -1,11 +1,4 @@
-// ============================================
-// RANGYUL GROUP OF HOTELS - JAVASCRIPT
-// Updated with Premium Offers & Enhanced Animations
-// ============================================
-
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded - initializing components');
-    // Initialize all components in correct order
     initMobileMenu();
     initScrollProgress();
     initHeaderScroll();
@@ -18,12 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCurrentYear();
     initQuickBookingModal();
     initPremiumOffers();
-    
-    // Initialize Leaflet Map
     initLeafletMap();
 });
 
-// ==================== MOBILE MENU ====================
 function initMobileMenu() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -70,7 +60,6 @@ function initMobileMenu() {
     });
 }
 
-// ==================== SCROLL PROGRESS ====================
 function initScrollProgress() {
     const scrollProgress = document.querySelector('.scroll-progress');
     if (!scrollProgress) return;
@@ -82,7 +71,6 @@ function initScrollProgress() {
     });
 }
 
-// ==================== HEADER SCROLL EFFECT ====================
 function initHeaderScroll() {
     const header = document.querySelector('.header');
     if (!header) return;
@@ -96,7 +84,6 @@ function initHeaderScroll() {
     });
 }
 
-// ==================== HERO SLIDER ====================
 function initHeroSlider() {
     const slides = document.querySelectorAll('.hero-slide');
     if (slides.length === 0) return;
@@ -143,7 +130,6 @@ function initHeroSlider() {
     }
 }
 
-// ==================== QUICK BOOKING MODAL ====================
 function initQuickBookingModal() {
     const modal = document.getElementById('bookingModal');
     const quickBookBtns = document.querySelectorAll('.quick-book-trigger, .hero-quick-book-btn');
@@ -154,7 +140,6 @@ function initQuickBookingModal() {
     
     if (!modal || !form) return;
     
-    // Open modal from regular buttons
     quickBookBtns.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -164,7 +149,6 @@ function initQuickBookingModal() {
         });
     });
     
-    // Open modal from offer buttons with specific offer
     offerBookBtns.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -175,12 +159,10 @@ function initQuickBookingModal() {
         });
     });
     
-    // Open modal function
     function openBookingModal() {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
         
-        // Set default dates
         const today = new Date();
         const tomorrow = new Date(today);
         tomorrow.setDate(tomorrow.getDate() + 1);
@@ -188,13 +170,11 @@ function initQuickBookingModal() {
         document.getElementById('booking-checkin').valueAsDate = today;
         document.getElementById('booking-checkout').valueAsDate = tomorrow;
         
-        // Auto-focus first input
         setTimeout(() => {
             document.getElementById('booking-name').focus();
         }, 300);
     }
     
-    // Close modal
     function closeModal() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
@@ -206,18 +186,15 @@ function initQuickBookingModal() {
     
     modal.querySelector('.modal-overlay').addEventListener('click', closeModal);
     
-    // Close on Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeModal();
         }
     });
     
-    // Handle form submission
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form data
         const formData = {
             name: document.getElementById('booking-name').value.trim(),
             phone: document.getElementById('booking-phone').value.trim(),
@@ -230,13 +207,11 @@ function initQuickBookingModal() {
             offer: selectedOfferInput.value
         };
         
-        // Validate required fields
         if (!formData.name || !formData.phone || !formData.checkin || !formData.checkout || !formData.guests || !formData.property) {
             showNotification('Please fill in all required fields', 'error');
             return;
         }
         
-        // Format dates
         const checkinDate = new Date(formData.checkin);
         const checkoutDate = new Date(formData.checkout);
         const formattedCheckin = checkinDate.toLocaleDateString('en-IN', { 
@@ -250,7 +225,6 @@ function initQuickBookingModal() {
             year: 'numeric' 
         });
         
-        // Create WhatsApp message
         let whatsappMessage = `*New Booking Request - Rangyul Hotels*%0A%0A` +
                                `*Name:* ${formData.name}%0A` +
                                `*Phone:* ${formData.phone}%0A` +
@@ -260,12 +234,10 @@ function initQuickBookingModal() {
                                `*Guests:* ${formData.guests}%0A` +
                                `*Property:* ${formData.property}%0A`;
         
-        // Add offer information if selected
         if (formData.offer) {
             whatsappMessage += `*Selected Offer:* ${formData.offer}%0A`;
         }
         
-        // Add custom message if provided
         if (formData.message) {
             whatsappMessage += `*Message:* ${formData.message}%0A%0A`;
         } else {
@@ -274,10 +246,8 @@ function initQuickBookingModal() {
         
         whatsappMessage += `_Sent via Rangyul Website Quick Booking_`;
         
-        // Redirect to WhatsApp
         const whatsappUrl = `https://wa.me/918899452417?text=${whatsappMessage}`;
         
-        // Show success message
         const submitBtn = form.querySelector('.booking-submit-btn');
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
@@ -288,7 +258,6 @@ function initQuickBookingModal() {
             submitBtn.innerHTML = '<i class="fas fa-check"></i> Redirected Successfully!';
             submitBtn.style.background = 'linear-gradient(135deg, #2d4a2d 0%, #3a6b3a 100%)';
             
-            // Reset form and close modal after delay
             setTimeout(() => {
                 form.reset();
                 selectedOfferInput.value = '';
@@ -301,7 +270,6 @@ function initQuickBookingModal() {
         }, 1000);
     });
     
-    // Notification function
     function showNotification(message, type) {
         const notification = document.createElement('div');
         notification.className = `booking-notification ${type}`;
@@ -335,7 +303,6 @@ function initQuickBookingModal() {
         }, 4000);
     }
     
-    // Add CSS for notifications
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideInRight {
@@ -363,13 +330,10 @@ function initQuickBookingModal() {
     document.head.appendChild(style);
 }
 
-// ==================== PREMIUM OFFERS ====================
 function initPremiumOffers() {
     const offerCards = document.querySelectorAll('.premium-offer-card');
     
-    // Add hover effects
     offerCards.forEach(card => {
-        // Add click event for the whole card (except buttons)
         card.addEventListener('click', function(e) {
             if (!e.target.closest('.premium-book-btn') && !e.target.closest('a')) {
                 const offerBtn = this.querySelector('.premium-book-btn');
@@ -379,7 +343,6 @@ function initPremiumOffers() {
             }
         });
         
-        // Add keyboard navigation
         card.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
@@ -391,7 +354,6 @@ function initPremiumOffers() {
         });
     });
     
-    // Initialize intersection observer for animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -410,7 +372,6 @@ function initPremiumOffers() {
     });
 }
 
-// ==================== SCROLL ANIMATIONS ====================
 function initScrollAnimations() {
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.querySelectorAll('.feature-item, .property-card, .contact-card, .premium-offer-card, .stat-item, .map-property-card').forEach(el => el.style.opacity = '1');
@@ -440,7 +401,6 @@ function initScrollAnimations() {
     });
 }
 
-// ==================== PROPERTY CARDS ====================
 function initPropertyCards() {
     const propertyCards = document.querySelectorAll('.property-card');
     
@@ -526,7 +486,6 @@ function initPropertySlider(propertyCard, cardIndex) {
     }, 100);
 }
 
-// ==================== CONTACT CARDS ====================
 function initContactCards() {
     const contactItems = document.querySelectorAll('.contact-item');
     
@@ -543,7 +502,6 @@ function initContactCards() {
     });
 }
 
-// ==================== SOCIAL ICONS ====================
 function initSocialIcons() {
     const socialIcons = document.querySelectorAll('.social-icon-footer');
     
@@ -558,7 +516,6 @@ function initSocialIcons() {
     });
 }
 
-// ==================== STATS COUNTER ====================
 function initStatsCounter() {
     const statNumbers = document.querySelectorAll('.stat-number');
     if (statNumbers.length === 0) return;
@@ -595,12 +552,10 @@ function initStatsCounter() {
     });
 }
 
-// ==================== LEAFLET MAP ====================
 function initLeafletMap() {
     const mapElement = document.getElementById('leaflet-map');
     if (!mapElement) return;
     
-    // Property locations
     const properties = [
         {
             id: 'hotel-rangyul',
@@ -631,22 +586,17 @@ function initLeafletMap() {
         }
     ];
     
-    // Initialize map
     const map = L.map(mapElement).setView([34.5576, 76.1252], 12);
     
-    // Add tile layer (OpenStreetMap)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 18,
     }).addTo(map);
     
-    // Add custom styling to map
     mapElement.style.background = 'var(--luxury-dark)';
     
-    // Create custom markers with golden color
     const markers = [];
     
-    // Custom icon for markers
     const goldenIcon = L.divIcon({
         className: 'custom-marker',
         html: '<div style="background: #d4af37; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);"></div>',
@@ -655,13 +605,11 @@ function initLeafletMap() {
     });
     
     properties.forEach(property => {
-        // Create marker
         const marker = L.marker([property.lat, property.lng], { 
             icon: goldenIcon,
             title: property.name
         }).addTo(map);
         
-        // Create popup content
         const popupContent = `
             <div class="map-marker-popup">
                 <h3>${property.icon} ${property.name}</h3>
@@ -677,15 +625,12 @@ function initLeafletMap() {
             className: 'custom-popup'
         });
         
-        // Store marker reference
         markers.push({
             marker: marker,
             property: property
         });
         
-        // Add click event to marker
         marker.on('click', function() {
-            // Highlight corresponding property card
             const propertyCards = document.querySelectorAll('.map-property-card');
             propertyCards.forEach(card => card.classList.remove('active'));
             const targetCard = document.querySelector(`.map-property-card[data-location="${property.id}"]`);
@@ -693,7 +638,6 @@ function initLeafletMap() {
         });
     });
     
-    // Add click events to property cards
     const propertyCards = document.querySelectorAll('.map-property-card');
     propertyCards.forEach(card => {
         card.addEventListener('click', function() {
@@ -701,17 +645,13 @@ function initLeafletMap() {
             const lat = parseFloat(this.getAttribute('data-lat'));
             const lng = parseFloat(this.getAttribute('data-lng'));
             
-            // Update active state
             propertyCards.forEach(c => c.classList.remove('active'));
             this.classList.add('active');
             
-            // Find corresponding marker
             const markerData = markers.find(m => m.property.id === location);
             if (markerData) {
-                // Center map on property
                 map.setView([lat, lng], 14);
                 
-                // Open popup after a short delay
                 setTimeout(() => {
                     markerData.marker.openPopup();
                 }, 500);
@@ -719,7 +659,6 @@ function initLeafletMap() {
         });
     });
     
-    // Add Kargil area highlight
     const kargilArea = L.polygon([
         [34.55, 76.12],
         [34.56, 76.12],
@@ -733,17 +672,14 @@ function initLeafletMap() {
         opacity: 0.3
     }).addTo(map);
     
-    // Add custom controls for better UX
     L.control.zoom({
         position: 'topright'
     }).addTo(map);
     
-    // Add a custom attribution
     const customAttribution = L.control.attribution({prefix: false});
     customAttribution.addAttribution('Rangyul Group of Hotels');
     customAttribution.addTo(map);
     
-    // Handle map resize on window resize
     setTimeout(() => {
         map.invalidateSize();
     }, 100);
@@ -755,7 +691,6 @@ function initLeafletMap() {
     });
 }
 
-// ==================== UPDATE CURRENT YEAR ====================
 function updateCurrentYear() {
     const yearElement = document.getElementById('current-year');
     if (yearElement) {
@@ -764,7 +699,6 @@ function updateCurrentYear() {
     }
 }
 
-// ==================== SMOOTH SCROLL ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -781,11 +715,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ==================== WINDOW LOAD EVENT ====================
 window.addEventListener('load', function() {
-    console.log('Page fully loaded - ensuring all features work');
-    
-    // Re-initialize property sliders
     setTimeout(() => {
         const propertyCards = document.querySelectorAll('.property-card');
         propertyCards.forEach((card, index) => {
@@ -793,13 +723,10 @@ window.addEventListener('load', function() {
         });
     }, 500);
     
-    // Add loaded class for fade-in effects
     document.body.classList.add('loaded');
     
-    // Initialize stats counter
     initStatsCounter();
     
-    // Trigger map resize after images load
     if (typeof L !== 'undefined') {
         setTimeout(() => {
             const map = L && L.map && document.querySelector('.leaflet-container') ? 

@@ -12,17 +12,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="hotel-page">
-    <!-- Scroll Progress Indicator -->
     <div class="scroll-progress"></div>
 
    <header class="header">
     <div class="nav-container">
-        <!-- Logo -->
         <a href="index.html" class="logo">
             <img src="images/logo.png" alt="Rangyul Group of Hotels Logo" class="logo-img">
         </a>
         
-        <!-- Navigation Menu -->
         <nav class="nav-menu">
             <a href="index.html" class="nav-link">Home</a>
             <a href="hotel-rangyul.html" class="nav-link">Hotel Rangyul</a>
@@ -31,7 +28,6 @@
             <a href="contact.html" class="nav-link nav-cta">Contact</a>
         </nav>
         
-        <!-- Mobile Menu Toggle -->
         <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
             <span></span>
             <span></span>
@@ -40,7 +36,6 @@
     </div>
 </header>
 
-    <!-- Resort Hero Section -->
     <section class="hotel-hero">
         <div class="hotel-hero-bg">
             <img src="images/resort/resort-hero.jpg" alt="Rangyul Resort Exterior" class="hotel-hero-image">
@@ -53,7 +48,6 @@
                 <div class="hero-divider"></div>
                 <p class="hotel-hero-subtitle">A peaceful resort-style stay surrounded by greenery and natural beauty. Nestled amidst the majestic Himalayas, Rangyul Resort offers a perfect blend of luxury and nature.</p>
                 
-                <!-- Stats Section -->
                 <div class="hotel-hero-stats">
                     <div class="stat-item">
                         <div class="stat-number-container">
@@ -81,7 +75,154 @@
         </div>
     </section>
 
-    <!-- About Resort Section -->
+    <section class="section rooms-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">COTTAGE TYPES</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Choose from our selection of eco-friendly accommodations</p>
+            </div>
+            
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-image-container">
+                        <img src="images/resort/standard-cottage.jpg" alt="Standard Cottage" class="room-image">
+                        <div class="room-overlay">
+                            <div class="room-tag">STANDARD</div>
+                        </div>
+                    </div>
+                    <div class="room-content">
+                        <h3 class="room-name">Standard Cottage</h3>
+                        <p class="room-description">Cozy eco-friendly cottage with basic amenities and beautiful garden views. Perfect for couples and solo travelers.</p>
+                        <div class="room-features">
+                            <span class="room-feature">
+                                <i class="fas fa-user-friends"></i> 2 Guests
+                            </span>
+                            <span class="room-feature">
+                                <i class="fas fa-bed"></i> 1 Double Bed
+                            </span>
+                            <span class="room-feature">
+                                <i class="fas fa-ruler-combined"></i> 300 sq ft
+                            </span>
+                        </div>
+                        <div class="room-details">
+                            <div class="room-detail">
+                                <i class="fas fa-tv"></i> LED TV
+                            </div>
+                            <div class="room-detail">
+                                <i class="fas fa-tree"></i> Garden View
+                            </div>
+                            <div class="room-detail">
+                                <i class="fas fa-wifi"></i> Free Wi-Fi
+                            </div>
+                        </div>
+                        <div class="room-footer">
+                            <div class="room-price">
+                                <span class="price-amount">₹3,500</span>
+                                <span class="price-period">/ night</span>
+                            </div>
+                            <button class="room-book-btn book-now-btn" 
+                                    data-room="Standard Cottage" 
+                                    data-price="₹3,500/night">
+                                <span>Book Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="room-card featured">
+                    <div class="featured-badge">
+                        <i class="fas fa-crown"></i>
+                        MOST POPULAR
+                    </div>
+                    <div class="room-image-container">
+                        <img src="images/resort/deluxe-cottage.jpg" alt="Deluxe Cottage" class="room-image">
+                        <div class="room-overlay">
+                            <div class="room-tag">DELUXE</div>
+                        </div>
+                    </div>
+                    <div class="room-content">
+                        <h3 class="room-name">Deluxe Cottage</h3>
+                        <p class="room-description">Spacious cottage with private balcony and panoramic mountain views. Ideal for families and longer stays.</p>
+                        <div class="room-features">
+                            <span class="room-feature">
+                                <i class="fas fa-user-friends"></i> 3 Guests
+                            </span>
+                            <span class="room-feature">
+                                <i class="fas fa-bed"></i> 1 Double + 1 Single
+                            </span>
+                            <span class="room-feature">
+                                <i class="fas fa-ruler-combined"></i> 450 sq ft
+                            </span>
+                        </div>
+                        <div class="room-details">
+                            <div class="room-detail">
+                                <i class="fas fa-tv"></i> Smart TV
+                            </div>
+                            <div class="room-detail">
+                                <i class="fas fa-home"></i> Private Balcony
+                            </div>
+                            <div class="room-detail">
+                                <i class="fas fa-mountain"></i> Mountain View
+                            </div>
+                        </div>
+                        <div class="room-footer">
+                            <div class="room-price">
+                                <span class="price-amount">₹5,000</span>
+                                <span class="price-period">/ night</span>
+                            </div>
+                            <button class="room-book-btn book-now-btn" 
+                                    data-room="Deluxe Cottage" 
+                                    data-price="₹5,000/night">
+                                <span>Book Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="room-comparison">
+                <div class="comparison-header">
+                    <h4>Cottage Comparison</h4>
+                    <p>Choose the perfect cottage for your needs</p>
+                </div>
+            
+                <div class="comparison-row">
+                    <div class="comparison-cell">Size</div>
+                    <div class="comparison-cell">300 sq ft</div>
+                    <div class="comparison-cell">450 sq ft</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Max Guests</div>
+                    <div class="comparison-cell">2</div>
+                    <div class="comparison-cell">3</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Bed Type</div>
+                    <div class="comparison-cell">1 Double Bed</div>
+                    <div class="comparison-cell">1 Double + 1 Single</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Private Balcony</div>
+                    <div class="comparison-cell"><i class="fas fa-check"></i></div>
+                    <div class="comparison-cell"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Mountain View</div>
+                    <div class="comparison-cell"><i class="fas fa-times"></i></div>
+                    <div class="comparison-cell"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-cell">Price/Night</div>
+                    <div class="comparison-cell">₹3,500</div>
+                    <div class="comparison-cell">₹5,000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section about-hotel-section">
         <div class="container">
             <div class="section-header">
@@ -157,158 +298,6 @@
         </div>
     </section>
 
-    <!-- Room Types Section -->
-    <section class="section rooms-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">COTTAGE TYPES</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Choose from our selection of eco-friendly accommodations</p>
-            </div>
-            
-            <div class="rooms-grid">
-                <!-- Standard Cottage -->
-                <div class="room-card">
-                    <div class="room-image-container">
-                        <img src="images/resort/standard-cottage.jpg" alt="Standard Cottage" class="room-image">
-                        <div class="room-overlay">
-                            <div class="room-tag">STANDARD</div>
-                        </div>
-                    </div>
-                    <div class="room-content">
-                        <h3 class="room-name">Standard Cottage</h3>
-                        <p class="room-description">Cozy eco-friendly cottage with basic amenities and beautiful garden views. Perfect for couples and solo travelers.</p>
-                        <div class="room-features">
-                            <span class="room-feature">
-                                <i class="fas fa-user-friends"></i> 2 Guests
-                            </span>
-                            <span class="room-feature">
-                                <i class="fas fa-bed"></i> 1 Double Bed
-                            </span>
-                            <span class="room-feature">
-                                <i class="fas fa-ruler-combined"></i> 300 sq ft
-                            </span>
-                        </div>
-                        <div class="room-details">
-                            <div class="room-detail">
-                                <i class="fas fa-tv"></i> LED TV
-                            </div>
-                            <div class="room-detail">
-                                <i class="fas fa-tree"></i> Garden View
-                            </div>
-                            <div class="room-detail">
-                                <i class="fas fa-wifi"></i> Free Wi-Fi
-                            </div>
-                        </div>
-                        <div class="room-footer">
-                            <div class="room-price">
-                                <span class="price-amount">₹3,500</span>
-                                <span class="price-period">/ night</span>
-                            </div>
-                            <button class="room-book-btn book-now-btn" 
-                                    data-room="Standard Cottage" 
-                                    data-price="₹3,500/night">
-                                <span>Book Now</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Deluxe Cottage -->
-                <div class="room-card featured">
-                    <div class="featured-badge">
-                        <i class="fas fa-crown"></i>
-                        MOST POPULAR
-                    </div>
-                    <div class="room-image-container">
-                        <img src="images/resort/deluxe-cottage.jpg" alt="Deluxe Cottage" class="room-image">
-                        <div class="room-overlay">
-                            <div class="room-tag">DELUXE</div>
-                        </div>
-                    </div>
-                    <div class="room-content">
-                        <h3 class="room-name">Deluxe Cottage</h3>
-                        <p class="room-description">Spacious cottage with private balcony and panoramic mountain views. Ideal for families and longer stays.</p>
-                        <div class="room-features">
-                            <span class="room-feature">
-                                <i class="fas fa-user-friends"></i> 3 Guests
-                            </span>
-                            <span class="room-feature">
-                                <i class="fas fa-bed"></i> 1 Double + 1 Single
-                            </span>
-                            <span class="room-feature">
-                                <i class="fas fa-ruler-combined"></i> 450 sq ft
-                            </span>
-                        </div>
-                        <div class="room-details">
-                            <div class="room-detail">
-                                <i class="fas fa-tv"></i> Smart TV
-                            </div>
-                            <div class="room-detail">
-                                <i class="fas fa-home"></i> Private Balcony
-                            </div>
-                            <div class="room-detail">
-                                <i class="fas fa-mountain"></i> Mountain View
-                            </div>
-                        </div>
-                        <div class="room-footer">
-                            <div class="room-price">
-                                <span class="price-amount">₹5,000</span>
-                                <span class="price-period">/ night</span>
-                            </div>
-                            <button class="room-book-btn book-now-btn" 
-                                    data-room="Deluxe Cottage" 
-                                    data-price="₹5,000/night">
-                                <span>Book Now</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="room-comparison">
-                <div class="comparison-header">
-                    <h4>Cottage Comparison</h4>
-                    <p>Choose the perfect cottage for your needs</p>
-                </div>
-                
-                <div class="comparison-row">
-                    <div class="comparison-cell">Size</div>
-                    <div class="comparison-cell">300 sq ft</div>
-                    <div class="comparison-cell">450 sq ft</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-cell">Max Guests</div>
-                    <div class="comparison-cell">2</div>
-                    <div class="comparison-cell">3</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-cell">Bed Type</div>
-                    <div class="comparison-cell">1 Double Bed</div>
-                    <div class="comparison-cell">1 Double + 1 Single</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-cell">Private Balcony</div>
-                    <div class="comparison-cell"><i class="fas fa-check"></i></div>
-                    <div class="comparison-cell"><i class="fas fa-check"></i></div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-cell">Mountain View</div>
-                    <div class="comparison-cell"><i class="fas fa-times"></i></div>
-                    <div class="comparison-cell"><i class="fas fa-check"></i></div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-cell">Price/Night</div>
-                    <div class="comparison-cell">₹3,500</div>
-                    <div class="comparison-cell">₹5,000</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Amenities & Services Section -->
     <section class="section amenities-section">
         <div class="container">
             <div class="section-header">
@@ -318,7 +307,6 @@
             </div>
             
             <div class="amenities-grid">
-                <!-- Accommodation -->
                 <div class="amenity-category">
                     <div class="category-icon">
                         <i class="fas fa-home"></i>
@@ -348,7 +336,6 @@
                     </ul>
                 </div>
                 
-                <!-- Dining & Food -->
                 <div class="amenity-category">
                     <div class="category-icon">
                         <i class="fas fa-utensils"></i>
@@ -378,7 +365,6 @@
                     </ul>
                 </div>
                 
-                <!-- Facilities & Services -->
                 <div class="amenity-category">
                     <div class="category-icon">
                         <i class="fas fa-concierge-bell"></i>
@@ -408,7 +394,6 @@
                     </ul>
                 </div>
                 
-                <!-- Nature & Experience -->
                 <div class="amenity-category">
                     <div class="category-icon">
                         <i class="fas fa-tree"></i>
@@ -451,7 +436,6 @@
         </div>
     </section>
 
-    <!-- Photo Gallery Section -->
     <section class="section gallery-section">
         <div class="container">
             <div class="section-header">
@@ -489,7 +473,6 @@
         </div>
     </section>
 
-    <!-- Location & Contact Section -->
     <section class="section location-section">
         <div class="container">
             <div class="section-header">
@@ -562,7 +545,6 @@
         </div>
     </section>
 
-    <!-- Booking Modal -->
     <div class="booking-modal" id="bookingModal">
         <div class="booking-modal-content">
             <button class="booking-modal-close" id="closeModal">
@@ -639,13 +621,10 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-divider"></div>
         <div class="container">
-            <!-- Main Footer Content -->
             <div class="footer-main">
-                <!-- Brand Column (Left) -->
                 <div class="footer-brand">
                     <div class="footer-logo-container">
                         <img src="images/logo.png" alt="Rangyul Logo" class="footer-logo">
@@ -655,7 +634,6 @@
                     <p class="footer-tagline">A peaceful resort-style stay surrounded by greenery and natural beauty. Experience the perfect blend of luxury and nature.</p>
                 </div>
                 
-                <!-- Contact Column (Right) -->
                 <div class="footer-contact">
                     <h4 class="footer-heading">Contact Information</h4>
                     <div class="contact-info-footer">
@@ -692,7 +670,6 @@
                 </div>
             </div>
             
-            <!-- Social Media Section (Center) -->
             <div class="footer-social-section">
                 <h4 class="social-heading">Connect With Us</h4>
                 <div class="social-icons-container">
@@ -712,33 +689,24 @@
             </div>
             
             <div class="footer-bottom">
-    <!-- ADD THIS LEGAL LINKS SECTION -->
-    <div class="legal-links-footer" style="display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; flex-wrap: wrap;">
-        <a href="privacy-policy.html" style="color: var(--luxury-gold); font-size: 14px; text-decoration: none; position: relative; padding: 5px 0;">
-            <i class="fas fa-shield-alt" style="margin-right: 8px;"></i>
-            Privacy Policy
-            <span style="position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--luxury-gold); transition: width 0.3s ease;"></span>
-        </a>
-        <a href="terms-conditions.html" style="color: var(--luxury-gold); font-size: 14px; text-decoration: none; position: relative; padding: 5px 0;">
-            <i class="fas fa-file-contract" style="margin-right: 8px;"></i>
-            Terms & Conditions
-            <span style="position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--luxury-gold); transition: width 0.3s ease;"></span>
-        </a>
-        <a href="contact.html" style="color: var(--luxury-gold); font-size: 14px; text-decoration: none; position: relative; padding: 5px 0;">
-            <i class="fas fa-headset" style="margin-right: 8px;"></i>
-            Contact Support
-            <span style="position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--luxury-gold); transition: width 0.3s ease;"></span>
-        </a>
-    </div>
-    <!-- END OF LEGAL LINKS SECTION -->
-    
-    <p class="copyright">&copy; <span id="current-year">2026</span> Rangyul Group of Hotels. All rights reserved.</p>
-    <p><a href="index.html" class="back-to-home"><i class="fas fa-home"></i> Back to Home</a></p>
-</div>
+                <div class="legal-links-footer">
+                    <a href="privacy-policy.html" class="legal-link">
+                        <i class="fas fa-shield-alt"></i> Privacy Policy
+                    </a>
+                    <a href="terms-conditions.html" class="legal-link">
+                        <i class="fas fa-file-contract"></i> Terms & Conditions
+                    </a>
+                    <a href="contact.html" class="legal-link">
+                        <i class="fas fa-headset"></i> Contact Support
+                    </a>
+                </div>
+                
+                <p class="copyright">&copy; <span id="current-year">2026</span> Rangyul Group of Hotels. All rights reserved.</p>
+                <p><a href="index.html" class="back-to-home"><i class="fas fa-home"></i> Back to Home</a></p>
+            </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>

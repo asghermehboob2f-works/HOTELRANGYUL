@@ -1,8 +1,3 @@
-/* ========================================
-   HOTEL RANGYUL PAGE - MATCHING ORIGINAL THEME
-   ======================================== */
-
-/* ==================== HOTEL PAGE VARIABLES ==================== */
 :root {
     --hotel-hero-height: 70vh;
     --card-radius: 15px;
@@ -26,7 +21,6 @@
     background: var(--luxury-black);
 }
 
-/* ==================== HEADER & NAVIGATION - UPDATED TO MATCH INDEX ==================== */
 .header {
     position: fixed;
     top: 0;
@@ -42,12 +36,8 @@
 }
 
 @keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
 }
 
 .header.scrolled {
@@ -65,7 +55,6 @@
     justify-content: space-between;
 }
 
-/* Logo - Simplified like index */
 .logo {
     display: flex;
     align-items: center;
@@ -86,12 +75,8 @@
 }
 
 @keyframes logoPulse {
-    0%, 100% {
-        filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
-    }
-    50% {
-        filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.7));
-    }
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3)); }
+    50% { filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.7)); }
 }
 
 .logo:hover .logo-img {
@@ -100,15 +85,10 @@
 }
 
 @keyframes logoPulseFast {
-    0%, 100% {
-        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
-    }
-    50% {
-        filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.9));
-    }
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6)); }
+    50% { filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.9)); }
 }
 
-/* Navigation Menu */
 .nav-menu {
     display: flex;
     gap: 32px;
@@ -150,7 +130,6 @@
     width: 100%;
 }
 
-/* Contact Button Styling - Match Index */
 .nav-cta {
     background: linear-gradient(135deg, #d4af37 0%, #e5c158 100%);
     color: #0a0a0a;
@@ -175,7 +154,6 @@
     display: none;
 }
 
-/* Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -207,7 +185,6 @@
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* ==================== HOTEL HERO SECTION ==================== */
 .hotel-hero {
     position: relative;
     height: var(--hotel-hero-height);
@@ -239,15 +216,9 @@
 }
 
 @keyframes gentlePan {
-    0% {
-        transform: scale(1.05) translateX(0) translateY(0);
-    }
-    50% {
-        transform: scale(1.08) translateX(-1%) translateY(-1%);
-    }
-    100% {
-        transform: scale(1.05) translateX(1%) translateY(1%);
-    }
+    0% { transform: scale(1.05) translateX(0) translateY(0); }
+    50% { transform: scale(1.08) translateX(-1%) translateY(-1%); }
+    100% { transform: scale(1.05) translateX(1%) translateY(1%); }
 }
 
 .hero-overlay {
@@ -278,14 +249,8 @@
 }
 
 @keyframes heroReveal {
-    from {
-        opacity: 0;
-        transform: translateY(40px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    from { opacity: 0; transform: translateY(40px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .hotel-hero-pretext {
@@ -330,14 +295,8 @@
 }
 
 @keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hotel-hero-subtitle {
@@ -352,7 +311,6 @@
     font-weight: 300;
 }
 
-/* FIXED STATS SECTION WITH PROPER VERTICAL ALIGNMENT */
 .hotel-hero-stats {
     display: flex;
     justify-content: center;
@@ -371,7 +329,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 120px; /* Added fixed height for better centering */
+    height: 120px;
 }
 
 .stat-item:not(:last-child)::after {
@@ -391,7 +349,7 @@
     justify-content: center;
     gap: 2px;
     margin-bottom: 0.3rem;
-    transform: translateY(5px); /* Move content down slightly */
+    transform: translateY(5px);
 }
 
 .stat-number {
@@ -421,268 +379,9 @@
     color: rgba(245, 241, 232, 0.8);
     font-weight: 500;
     margin-top: 0.2rem;
-    transform: translateY(-2px); /* Move label up slightly to balance */
+    transform: translateY(-2px);
 }
 
-/* ==================== ABOUT HOTEL SECTION ==================== */
-.about-hotel-section {
-    padding: var(--section-spacing) 0;
-    background: var(--luxury-dark);
-    position: relative;
-    overflow: hidden;
-}
-
-.about-hotel-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 90% 80%, rgba(139, 30, 63, 0.03) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 1;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-}
-
-.about-text {
-    padding-right: 1rem;
-}
-/* Increase lead text size */
-.about-lead {
-    font-family: var(--font-cinzel);
-    font-size: 2.2rem;
-    color: var(--luxury-gold);
-    margin-bottom: 1.5rem;
-    line-height: 1.3;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.about-lead::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    width: 4px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--luxury-gold), var(--luxury-gold-light));
-    border-radius: 2px;
-}
-
-/* Increase paragraph text size */
-.about-text p {
-    font-size: 1.1rem;
-    color: rgba(245, 241, 232, 0.8);
-    line-height: 1.7;
-    margin-bottom: 1.2rem;
-    font-weight: 300;
-}
-
-.experience-features {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.feature-highlight {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.2rem;
-    background: rgba(30, 30, 30, 0.8);
-    border-radius: 10px;
-    border: 1px solid rgba(212, 175, 55, 0.1);
-    transition: all 0.4s var(--transition-gentle);
-    backdrop-filter: blur(10px);
-    height: 100%;
-}
-
-.feature-highlight:hover {
-    border-color: rgba(212, 175, 55, 0.3);
-    transform: translateY(-3px);
-    background: rgba(30, 30, 30, 0.95);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.feature-icon {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--luxury-gold);
-    font-size: 1.4rem;
-    transition: all 0.4s var(--transition-gentle);
-    flex-shrink: 0;
-    border: 1px solid rgba(212, 175, 55, 0.1);
-}
-
-.feature-highlight:hover .feature-icon {
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.15));
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-}
-
-.feature-content {
-    flex: 1;
-}
-
-/* Increase feature highlight text */
-.feature-highlight h4 {
-    font-family: var(--font-cinzel);
-    font-size: 1.3rem;
-    color: var(--luxury-ivory);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.feature-highlight p {
-    font-size: 1rem;
-    color: rgba(245, 241, 232, 0.7);
-    margin: 0;
-    line-height: 1.6;
-    font-weight: 300;
-}
-
-.about-image {
-    position: relative;
-}
-
-.image-frame.premium-frame {
-    position: relative;
-    border-radius: var(--card-radius);
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.9));
-}
-
-.image-frame-inner {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--card-radius);
-    margin: 12px;
-    height: 400px;
-}
-
-.frame-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s var(--transition-gentle);
-    border-radius: calc(var(--card-radius) - 5px);
-}
-
-.image-frame:hover .frame-image {
-    transform: scale(1.05);
-}
-
-/* Image Overlay with "Since 2010" */
-.image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-    padding: 30px;
-    z-index: 2;
-}
-
-.overlay-content h4 {
-    color: var(--luxury-gold);
-    font-family: var(--font-cinzel);
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-}
-
-.overlay-content p {
-    color: rgba(245, 241, 232, 0.8);
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-.frame-corner {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border: 2px solid var(--luxury-gold);
-    opacity: 0.7;
-    transition: all 0.4s var(--transition-gentle);
-}
-
-.frame-corner.tl {
-    top: 0;
-    left: 0;
-    border-right: none;
-    border-bottom: none;
-    border-top-left-radius: 10px;
-}
-
-.frame-corner.tr {
-    top: 0;
-    right: 0;
-    border-left: none;
-    border-bottom: none;
-    border-top-right-radius: 10px;
-}
-
-.frame-corner.bl {
-    bottom: 0;
-    left: 0;
-    border-right: none;
-    border-top: none;
-    border-bottom-left-radius: 10px;
-}
-
-.frame-corner.br {
-    bottom: 0;
-    right: 0;
-    border-left: none;
-    border-top: none;
-    border-bottom-right-radius: 10px;
-}
-
-.image-frame:hover .frame-corner {
-    opacity: 1;
-    width: 40px;
-    height: 40px;
-    border-width: 2px;
-}
-
-.frame-decoration {
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    right: -15px;
-    bottom: -15px;
-    border: 2px solid rgba(212, 175, 55, 0.15);
-    border-radius: calc(var(--card-radius) + 10px);
-    z-index: -1;
-    opacity: 0.5;
-    transition: all 0.4s var(--transition-gentle);
-}
-
-.image-frame:hover .frame-decoration {
-    opacity: 0.8;
-    transform: scale(0.98);
-    border-color: rgba(212, 175, 55, 0.3);
-}
-
-/* ==================== ROOMS SECTION ==================== */
 .rooms-section {
     padding: var(--section-spacing) 0;
     background: var(--luxury-black);
@@ -917,7 +616,6 @@
     transform: translateX(5px) rotate(10deg);
 }
 
-/* Room Comparison */
 .room-comparison {
     background: rgba(255, 255, 255, 0.03);
     border-radius: var(--card-radius);
@@ -991,7 +689,260 @@
     color: rgba(245, 241, 232, 0.3);
 }
 
-/* ==================== AMENITIES SECTION ==================== */
+.about-hotel-section {
+    padding: var(--section-spacing) 0;
+    background: var(--luxury-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-hotel-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(139, 30, 63, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.about-text {
+    padding-right: 1rem;
+}
+
+.about-lead {
+    font-family: var(--font-cinzel);
+    font-size: 2.2rem;
+    color: var(--luxury-gold);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.about-lead::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 4px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--luxury-gold), var(--luxury-gold-light));
+    border-radius: 2px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: rgba(245, 241, 232, 0.8);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+}
+
+.experience-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.feature-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    transition: all 0.4s var(--transition-gentle);
+    backdrop-filter: blur(10px);
+    height: 100%;
+}
+
+.feature-highlight:hover {
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-3px);
+    background: rgba(30, 30, 30, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--luxury-gold);
+    font-size: 1.4rem;
+    transition: all 0.4s var(--transition-gentle);
+    flex-shrink: 0;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.feature-highlight:hover .feature-icon {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.15));
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-highlight h4 {
+    font-family: var(--font-cinzel);
+    font-size: 1.3rem;
+    color: var(--luxury-ivory);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.feature-highlight p {
+    font-size: 1rem;
+    color: rgba(245, 241, 232, 0.7);
+    margin: 0;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.about-image {
+    position: relative;
+}
+
+.image-frame.premium-frame {
+    position: relative;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.9));
+}
+
+.image-frame-inner {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--card-radius);
+    margin: 12px;
+    height: 400px;
+}
+
+.frame-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--transition-gentle);
+    border-radius: calc(var(--card-radius) - 5px);
+}
+
+.image-frame:hover .frame-image {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 30px;
+    z-index: 2;
+}
+
+.overlay-content h4 {
+    color: var(--luxury-gold);
+    font-family: var(--font-cinzel);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.overlay-content p {
+    color: rgba(245, 241, 232, 0.8);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.frame-corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--luxury-gold);
+    opacity: 0.7;
+    transition: all 0.4s var(--transition-gentle);
+}
+
+.frame-corner.tl {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+}
+
+.frame-corner.tr {
+    top: 0;
+    right: 0;
+    border-left: none;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+}
+
+.frame-corner.bl {
+    bottom: 0;
+    left: 0;
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+}
+
+.frame-corner.br {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
+    border-bottom-right-radius: 10px;
+}
+
+.image-frame:hover .frame-corner {
+    opacity: 1;
+    width: 40px;
+    height: 40px;
+    border-width: 2px;
+}
+
+.frame-decoration {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border: 2px solid rgba(212, 175, 55, 0.15);
+    border-radius: calc(var(--card-radius) + 10px);
+    z-index: -1;
+    opacity: 0.5;
+    transition: all 0.4s var(--transition-gentle);
+}
+
+.image-frame:hover .frame-decoration {
+    opacity: 0.8;
+    transform: scale(0.98);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
 .amenities-section {
     padding: var(--section-spacing) 0;
     background: var(--luxury-dark);
@@ -1011,7 +962,6 @@
     pointer-events: none;
 }
 
-/* CHANGED: 4 columns in a single row for desktop */
 .amenities-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1209,7 +1159,6 @@
     transform: translateX(5px) rotate(10deg);
 }
 
-/* ==================== GALLERY SECTION ==================== */
 .gallery-section {
     padding: var(--section-spacing) 0;
     background: var(--luxury-black);
@@ -1268,7 +1217,6 @@
     padding: 1rem;
 }
 
-/* ==================== LOCATION SECTION ==================== */
 .location-section {
     padding: var(--section-spacing) 0;
     background: var(--luxury-dark);
@@ -1425,7 +1373,6 @@
     border: none;
 }
 
-/* ==================== BOOKING MODAL ==================== */
 .booking-modal {
     position: fixed;
     top: 0;
@@ -1463,14 +1410,8 @@
 }
 
 @keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(40px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    from { opacity: 0; transform: translateY(40px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .booking-modal-close {
@@ -1691,7 +1632,6 @@
     line-height: 1.5;
 }
 
-/* ==================== GALLERY MODAL ==================== */
 .gallery-modal {
     position: fixed;
     top: 0;
@@ -1767,7 +1707,6 @@
     padding: 0.5rem;
 }
 
-/* ==================== BACK TO TOP BUTTON ==================== */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -1801,9 +1740,6 @@
         0 5px 15px rgba(212, 175, 55, 0.2);
 }
 
-/* ==================== RESPONSIVE DESIGN ==================== */
-
-/* Large Desktop */
 @media (min-width: 1400px) {
     .hotel-hero-title {
         font-size: 4rem;
@@ -1818,7 +1754,6 @@
     }
 }
 
-/* Tablet and Desktop adjustments */
 @media (max-width: 1024px) {
     .nav-container {
         padding: 0 15px;
@@ -1883,7 +1818,6 @@
         transform: translateY(4px);
     }
     
-    /* CHANGED: 2 columns on tablet */
     .amenities-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1911,7 +1845,6 @@
     }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
     .header {
         height: 70px;
@@ -1939,11 +1872,11 @@
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         overflow-y: auto;
         border-top: 1px solid rgba(212, 175, 55, 0.1);
-        z-index: 9999 !important; /* FIXED: Ensure it is over the hero content */
+        z-index: 9999 !important;
     }
     
     .nav-menu.active {
-        right: 0 !important; /* FIXED: Ensure class trigger shows the menu */
+        right: 0 !important;
     }
     
     .nav-link {
@@ -2020,7 +1953,6 @@
         transform: translateY(-1px);
     }
     
-    /* Improved feature icons for mobile */
     .experience-features {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -2076,7 +2008,6 @@
         height: 350px;
     }
     
-    /* CHANGED: 1 column on mobile */
     .amenities-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -2168,7 +2099,6 @@
         right: 20px;
     }
     
-    /* Gallery Modal Adjustments */
     .gallery-modal-content {
         max-width: 95%;
     }
@@ -2187,7 +2117,6 @@
     }
 }
 
-/* Small Mobile */
 @media (max-width: 480px) {
     .hotel-hero-title {
         font-size: 1.8rem;
@@ -2292,13 +2221,11 @@
     }
 }
 
-/* ==================== ANIMATIONS ==================== */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-/* ==================== ACCESSIBILITY ==================== */
 @media (prefers-reduced-motion: reduce) {
     .hotel-hero-content,
     .hotel-hero-image,
@@ -2320,7 +2247,6 @@
     }
 }
 
-/* Focus styles for keyboard navigation */
 .premium-cta-button:focus,
 .room-book-btn:focus,
 .map-btn:focus,
@@ -2334,7 +2260,6 @@
     outline-offset: 2px;
 }
 
-/* Print styles */
 @media print {
     .header,
     .back-to-top,

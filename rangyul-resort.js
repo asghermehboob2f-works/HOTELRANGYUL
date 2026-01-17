@@ -1,45 +1,24 @@
-// ============================================
-// RANGYUL RESORT PAGE JAVASCRIPT
-// Complete booking system with WhatsApp integration
-// IDENTICAL TO hotel-rangyul.js
-// ============================================
-
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Rangyul Resort page loaded');
-    
-    // Initialize all components
     initializeComponents();
 });
 
 function initializeComponents() {
-    // Initialize booking system
     initBookingSystem();
-    
-    // Initialize gallery modal
     initGalleryModal();
-    
-    // Initialize back to top button
     initBackToTop();
-    
-    // Update current year in footer
     updateCurrentYear();
-    
-    // Set minimum dates for date pickers
     setMinDates();
-    
-    // Initialize stats counter animation
     initStatsCounter();
 }
 
-// ==================== STATS COUNTER ANIMATION ====================
 function initStatsCounter() {
     const statNumbers = document.querySelectorAll('.stat-number');
     
     statNumbers.forEach(stat => {
         const targetValue = parseFloat(stat.getAttribute('data-value'));
         const isDecimal = targetValue % 1 !== 0;
-        const duration = 2000; // 2 seconds
-        const stepTime = 50; // Update every 50ms
+        const duration = 2000;
+        const stepTime = 50;
         const steps = duration / stepTime;
         const increment = targetValue / steps;
         let currentValue = 0;
@@ -54,7 +33,6 @@ function initStatsCounter() {
                 clearInterval(timer);
             }
             
-            // Format the number
             if (isDecimal) {
                 stat.textContent = currentValue.toFixed(1);
             } else {
@@ -64,7 +42,6 @@ function initStatsCounter() {
     });
 }
 
-// ==================== GALLERY MODAL ====================
 function initGalleryModal() {
     const galleryItems = document.querySelectorAll('.gallery-item');
     const galleryModal = document.createElement('div');
@@ -85,7 +62,6 @@ function initGalleryModal() {
     const galleryModalCaption = galleryModal.querySelector('.gallery-modal-caption');
     const galleryModalClose = galleryModal.querySelector('.gallery-modal-close');
     
-    // Open gallery modal on image click
     galleryItems.forEach(item => {
         item.addEventListener('click', function() {
             const imgSrc = this.querySelector('img').src;
@@ -104,7 +80,6 @@ function initGalleryModal() {
         });
     });
     
-    // Close modal function
     function closeGalleryModal() {
         galleryModal.style.opacity = '0';
         galleryModal.classList.remove('active');
@@ -114,7 +89,6 @@ function initGalleryModal() {
         }, 300);
     }
     
-    // Close modal events
     galleryModalClose.addEventListener('click', closeGalleryModal);
     
     galleryModal.addEventListener('click', function(e) {
@@ -123,7 +97,6 @@ function initGalleryModal() {
         }
     });
     
-    // Close with Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && galleryModal.classList.contains('active')) {
             closeGalleryModal();
@@ -131,63 +104,46 @@ function initGalleryModal() {
     });
 }
 
-// ==================== BOOKING SYSTEM ====================
 function initBookingSystem() {
     const bookingModal = document.getElementById('bookingModal');
     const bookNowButtons = document.querySelectorAll('.book-now-btn');
     const closeModalBtn = document.getElementById('closeModal');
     const cancelBookingBtn = document.getElementById('cancelBooking');
     const bookingForm = document.getElementById('bookingForm');
-    
-    // Room selection elements
     const selectedRoomName = document.getElementById('selectedRoomName');
     const summaryRoom = document.getElementById('summaryRoom');
     const summaryPrice = document.getElementById('summaryPrice');
     
-    console.log('Initializing booking system...');
-    console.log('Found', bookNowButtons.length, 'Book Now buttons');
-    
-    // Add click event to each Book Now button
     bookNowButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             
-            // Get room details from button data attributes
             const roomName = this.getAttribute('data-room');
             const roomPrice = this.getAttribute('data-price');
             
-            console.log('Booking clicked for:', roomName, roomPrice);
-            
-            // Update modal with selected room
             selectedRoomName.textContent = roomName;
             summaryRoom.textContent = roomName;
             summaryPrice.textContent = roomPrice;
             
-            // Show the modal
             bookingModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
             
-            // Animate in
             setTimeout(() => {
                 bookingModal.style.opacity = '1';
                 bookingModal.classList.add('active');
             }, 10);
             
-            // Clear any previous errors
             clearErrors();
             
-            // Reset form
             if (bookingForm) {
                 bookingForm.reset();
             }
             
-            // Set today as minimum date
             setMinDates();
         });
     });
     
-    // Close modal function
     function closeModal() {
         bookingModal.style.opacity = '0';
         bookingModal.classList.remove('active');
@@ -198,7 +154,6 @@ function initBookingSystem() {
         clearErrors();
     }
     
-    // Close modal buttons
     if (closeModalBtn) {
         closeModalBtn.addEventListener('click', closeModal);
     }
@@ -207,28 +162,23 @@ function initBookingSystem() {
         cancelBookingBtn.addEventListener('click', closeModal);
     }
     
-    // Close modal when clicking outside
     bookingModal.addEventListener('click', function(e) {
         if (e.target === bookingModal) {
             closeModal();
         }
     });
     
-    // Close with Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && bookingModal.style.display === 'flex') {
             closeModal();
         }
     });
     
-    // Form submission
     if (bookingForm) {
         bookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validate form
             if (validateBookingForm()) {
-                // Get form data
                 const name = document.getElementById('guestName').value.trim();
                 const phone = document.getElementById('guestPhone').value.trim();
                 const checkIn = document.getElementById('checkInDate').value;
@@ -236,20 +186,14 @@ function initBookingSystem() {
                 const guests = document.getElementById('guestCount').value;
                 const room = summaryRoom.textContent;
                 const price = summaryPrice.textContent;
-                
-                // Calculate number of nights
                 const nights = calculateNights(checkIn, checkOut);
                 
-                // Send to WhatsApp
                 sendToWhatsApp(name, phone, checkIn, checkOut, nights, guests, room, price);
-                
-                // Close modal
                 closeModal();
             }
         });
     }
     
-    // Date validation for check-out
     const checkInDate = document.getElementById('checkInDate');
     const checkOutDate = document.getElementById('checkOutDate');
     
@@ -261,7 +205,6 @@ function initBookingSystem() {
             
             checkOutDate.min = minCheckOut.toISOString().split('T')[0];
             
-            // If check-out is before new minimum, clear it
             const checkOutValue = new Date(checkOutDate.value);
             if (checkOutValue <= checkInValue) {
                 checkOutDate.value = '';
@@ -281,7 +224,6 @@ function initBookingSystem() {
     }
 }
 
-// Calculate number of nights
 function calculateNights(checkIn, checkOut) {
     if (!checkIn || !checkOut) return 1;
     
@@ -294,7 +236,6 @@ function calculateNights(checkIn, checkOut) {
     return nights > 0 ? nights : 1;
 }
 
-// Set minimum dates for date pickers
 function setMinDates() {
     const today = new Date();
     const tomorrow = new Date(today);
@@ -312,11 +253,9 @@ function setMinDates() {
     }
 }
 
-// Form validation
 function validateBookingForm() {
     let isValid = true;
     
-    // Name validation
     const nameInput = document.getElementById('guestName');
     if (!nameInput.value.trim()) {
         showError(nameInput, 'Please enter your name');
@@ -325,7 +264,6 @@ function validateBookingForm() {
         clearError(nameInput);
     }
     
-    // Phone validation
     const phoneInput = document.getElementById('guestPhone');
     const phoneRegex = /^[0-9]{10}$/;
     if (!phoneInput.value.trim()) {
@@ -338,7 +276,6 @@ function validateBookingForm() {
         clearError(phoneInput);
     }
     
-    // Check-in date validation
     const checkInDate = document.getElementById('checkInDate');
     if (!checkInDate.value) {
         showError(checkInDate, 'Please select check-in date');
@@ -347,7 +284,6 @@ function validateBookingForm() {
         clearError(checkInDate);
     }
     
-    // Check-out date validation
     const checkOutDate = document.getElementById('checkOutDate');
     if (!checkOutDate.value) {
         showError(checkOutDate, 'Please select check-out date');
@@ -364,7 +300,6 @@ function validateBookingForm() {
         }
     }
     
-    // Guests validation
     const guestsInput = document.getElementById('guestCount');
     if (!guestsInput.value) {
         showError(guestsInput, 'Please select number of guests');
@@ -376,7 +311,6 @@ function validateBookingForm() {
     return isValid;
 }
 
-// Show error message
 function showError(input, message) {
     clearError(input);
     
@@ -394,7 +328,6 @@ function showError(input, message) {
     input.style.borderColor = '#ff6b6b';
 }
 
-// Clear error message
 function clearError(input) {
     const errorDiv = input.parentNode.querySelector('.error-message');
     if (errorDiv) {
@@ -403,19 +336,15 @@ function clearError(input) {
     input.style.borderColor = 'rgba(212, 175, 55, 0.15)';
 }
 
-// Clear all errors
 function clearErrors() {
     const inputs = document.querySelectorAll('#bookingForm input, #bookingForm select');
     inputs.forEach(input => clearError(input));
 }
 
-// Send booking to WhatsApp
 function sendToWhatsApp(name, phone, checkIn, checkOut, nights, guests, room, price) {
-    // Format dates
     const formattedCheckIn = formatDate(checkIn);
     const formattedCheckOut = formatDate(checkOut);
     
-    // Create WhatsApp message
     let message = `*🏨 Rangyul Resort - Booking Request*%0A%0A`;
     message += `*Guest Name:* ${name}%0A`;
     message += `*Phone:* ${phone}%0A`;
@@ -427,22 +356,13 @@ function sendToWhatsApp(name, phone, checkIn, checkOut, nights, guests, room, pr
     message += `*Price:* ${price}%0A%0A`;
     message += `_This booking request was sent from Rangyul Resort website_`;
     
-    // WhatsApp number
     const whatsappNumber = '918899452417';
-    
-    // Create WhatsApp URL
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
     
-    console.log('Opening WhatsApp with booking details...');
-    
-    // Open WhatsApp in new tab
     window.open(whatsappUrl, '_blank');
-    
-    // Show success notification
     showSuccessNotification();
 }
 
-// Format date to readable string
 function formatDate(dateString) {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-IN', {
@@ -452,7 +372,6 @@ function formatDate(dateString) {
     });
 }
 
-// Show success notification
 function showSuccessNotification() {
     const notification = document.createElement('div');
     notification.className = 'booking-success-notification';
@@ -466,7 +385,6 @@ function showSuccessNotification() {
         </div>
     `;
     
-    // Style the notification
     notification.style.position = 'fixed';
     notification.style.top = '30px';
     notification.style.right = '30px';
@@ -480,33 +398,19 @@ function showSuccessNotification() {
     notification.style.maxWidth = '300px';
     notification.style.animation = 'slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
     
-    // Add slide in animation
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
         }
         @keyframes slideOut {
-            from {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateX(100px);
-            }
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(100px); }
         }
     `;
     document.head.appendChild(style);
     
-    // Content styles
     const content = notification.querySelector('.notification-content');
     content.style.display = 'flex';
     content.style.alignItems = 'flex-start';
@@ -528,10 +432,8 @@ function showSuccessNotification() {
     para.style.fontSize = '0.85rem';
     para.style.lineHeight = '1.4';
     
-    // Add to document
     document.body.appendChild(notification);
     
-    // Remove after 5 seconds
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
         setTimeout(() => {
@@ -542,7 +444,6 @@ function showSuccessNotification() {
     }, 5000);
 }
 
-// ==================== BACK TO TOP BUTTON ====================
 function initBackToTop() {
     const backToTopBtn = document.getElementById('backToTop');
     
@@ -571,7 +472,6 @@ function initBackToTop() {
     }
 }
 
-// ==================== UTILITY FUNCTIONS ====================
 function updateCurrentYear() {
     const yearElement = document.getElementById('current-year');
     if (yearElement) {
@@ -579,16 +479,13 @@ function updateCurrentYear() {
     }
 }
 
-// ==================== WINDOW LOAD EVENT ====================
 window.addEventListener('load', function() {
     console.log('Rangyul Resort page fully loaded');
 });
 
-// ==================== ERROR HANDLING ====================
 window.addEventListener('error', function(e) {
     console.error('JavaScript Error:', e.message);
     
-    // Fallback for missing images
     const images = document.querySelectorAll('img');
     images.forEach(img => {
         img.addEventListener('error', function() {
